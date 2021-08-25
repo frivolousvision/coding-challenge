@@ -1,0 +1,26 @@
+.new-target-form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  max-width: 30rem;
+  margin: 0 auto;
+  margin-bottom: 3rem;
+  padding: 2rem;
+}
+form {
+  display: flex;
+  flex-direction: column;
+}
+input {
+  margin-bottom: 1rem;
+  border-width: 0 0 1px;
+}
+button {
+  border-radius: 3px;
+  height: 2rem;
+  width: 100%;
+  background: transparent;
+  border: 1px solid black;
+}

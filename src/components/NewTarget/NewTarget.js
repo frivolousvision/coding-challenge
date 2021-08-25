@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./new-target.css";
 
 const NewTarget = (props) => {
   const [name, setName] = useState("");
@@ -17,7 +18,7 @@ const NewTarget = (props) => {
     setStatus("");
   };
   return (
-    <div>
+    <div className='new-target-form-container'>
       <h3>Create new target</h3>
       <form
         onSubmit={(e) =>

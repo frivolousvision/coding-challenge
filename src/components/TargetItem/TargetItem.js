@@ -33,7 +33,7 @@ const TargetItem = (props) => {
 
   return (
     <div className='target-items'>
-      <div className={!editCompany ? "show-form" : "hide-form"}>
+      <div className={!editCompany ? "show-info" : "hide-form"}>
         <div className='target-heading'>
           <Link to={`/${props.target.id}`}>
             {imgUrl ? <img src={imgUrl} alt='Company Logo'></img> : null}
@@ -97,7 +97,7 @@ const TargetItem = (props) => {
             value={newContact}
             onChange={(e) => setNewContact(e.target.value)}
           ></input>
-          <div className='status'>
+          <div className=''>
             <label>Status</label>
             <select
               value={status}
@@ -120,10 +120,10 @@ const TargetItem = (props) => {
               <option value='Declined'>Declined</option>
             </select>
           </div>
-          <button onClick={toggleForm} className=''>
-            Save
-          </button>
         </form>
+        <button onClick={toggleForm} className='save-button'>
+          Save
+        </button>
       </div>
       <div className='edit-delete-button-container'>
         {!editCompany ? (
@@ -140,7 +140,7 @@ const TargetItem = (props) => {
             onClick={() => props.deleteTarget(id)}
             className='delete-button'
           >
-            Delete Target
+            Delete
           </button>
         ) : null}
       </div>

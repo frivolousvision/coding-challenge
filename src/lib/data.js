@@ -1,6 +1,6 @@
 export const data = [
   {
-    id: 1,
+    id: "1",
     name: "AirGarage",
     img_url:
       "https://photos.angel.co/startups/i/4462956-636feb35abe46aa64c5af32d29eb9e3e-medium_jpg.jpg?buster=1501776720",
@@ -10,7 +10,7 @@ export const data = [
     location: "San Francisco",
   },
   {
-    id: 2,
+    id: "2",
     name: "Airtable",
     img_url:
       "https://photos.angel.co/startups/i/623000-9d210a39051abc7accec1dc686888dcc-medium_jpg.jpg?buster=1589312000",
@@ -19,7 +19,7 @@ export const data = [
     contact: "555-555-5555",
   },
   {
-    id: 3,
+    id: "3",
     name: "Bloomscape",
     img_url:
       "https://photos.angel.co/startups/i/6060025-c5c632d78c5fd53ab74781b1a7d908bb-medium_jpg.jpg?buster=1589599392",
@@ -28,7 +28,7 @@ export const data = [
     contact: "555-555-5555",
   },
   {
-    id: 4,
+    id: "4",
     name: "Calm",
     img_url:
       "https://photos.angel.co/startups/i/89425-f7e607ef282332eb355deaac362e78fc-medium_jpg.jpg?buster=1589609526",
@@ -37,7 +37,7 @@ export const data = [
     contact: "555-555-5555",
   },
   {
-    id: 5,
+    id: "5",
     name: "Capella Space",
     img_url:
       "https://photos.angel.co/startups/i/2915795-1e842423395200c8a431deb7d1ee0817-medium_jpg.jpg?buster=1561485850",
@@ -46,7 +46,7 @@ export const data = [
     contact: "555-555-5555",
   },
   {
-    id: 6,
+    id: "6",
     name: "Checkr",
     img_url:
       "https://photos.angel.co/startups/i/395014-2a2164ef6a8cd5954eb970228e62ce15-medium_jpg.jpg?buster=1589645742",

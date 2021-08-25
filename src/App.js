@@ -1,6 +1,6 @@
 import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Fragment } from "react";
 
 //Data
 import { data } from "./lib/data";
@@ -8,16 +8,16 @@ import { data } from "./lib/data";
 //Components
 import Header from "./components/Header/Header";
 import TargetList from "./components/TargetList/TargetList";
-// import NewTarget from "./components/NewTarget/NewTarget";
+import NewTarget from "./components/NewTarget/NewTarget";
 import TargetInfo from "./components/TargetInfo/TargetInfo";
 
 function App() {
   const [targets, setTargets] = useState([]);
 
-  // const addNewTarget = (e, target) => {
-  // e.preventDefault();
-  // setTargets((prevTargets) => prevTargets.concat(target));
-  // };
+  const addNewTarget = (e, target) => {
+    e.preventDefault();
+    setTargets((prevTargets) => prevTargets.concat(target));
+  };
 
   const deleteTarget = (id) => {
     let answer = window.confirm("Are you sure want to delete this target?");
@@ -42,7 +42,14 @@ function App() {
             path='/'
             exact
             component={() => (
-              <TargetList deleteTarget={deleteTarget} targets={targets} />
+              <Fragment>
+                <TargetList
+                  deleteTarget={deleteTarget}
+                  targets={targets}
+                  addNewTarget={addNewTarget}
+                />
+                <NewTarget addNewTarget={addNewTarget} />
+              </Fragment>
             )}
             // <TargetList deleteTarget={deleteTarget} targets={targets} />
             // {/* <NewTarget addNewTarget={addNewTarget} /> */}
