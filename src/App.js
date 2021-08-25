@@ -8,7 +8,7 @@ import { data } from "./lib/data";
 //Components
 import Header from "./components/Header/Header";
 import TargetList from "./components/TargetList/TargetList";
-import NewTarget from "./components/NewTarget/NewTarget";
+// import NewTarget from "./components/NewTarget/NewTarget";
 import TargetInfo from "./components/TargetInfo/TargetInfo";
 
 function App() {
