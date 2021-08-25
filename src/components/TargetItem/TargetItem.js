@@ -3,8 +3,8 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const TargetItem = (props) => {
-  const [id, setId] = useState(props.target.id);
-  const [imgUrl, setImgUrl] = useState(props.target.img_url);
+  const [id] = useState(props.target.id);
+  const [imgUrl] = useState(props.target.img_url);
   const [name, setName] = useState(props.target.name);
   const [info, setInfo] = useState(props.target.info);
   const [contact, setContact] = useState(props.target.contact);

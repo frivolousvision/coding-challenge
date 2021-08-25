@@ -10,13 +10,8 @@ const TargetInfo = ({ targets, match }) => {
   //   const [status, setStatus] = useState(props.target.status);
 
   useEffect(() => {
-    console.log(targets);
     setTarget(targets.filter((t) => (match.params.id = t.id)));
-    console.log(match.params.id);
-    if (target) {
-      console.log("target", target);
-    }
-  }, [targets, match.params.id]);
+  }, [targets, match.params]);
   return (
     <div className='target-info'>
       <p>Whats happening here</p>

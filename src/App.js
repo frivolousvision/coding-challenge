@@ -14,10 +14,10 @@ import TargetInfo from "./components/TargetInfo/TargetInfo";
 function App() {
   const [targets, setTargets] = useState([]);
 
-  const addNewTarget = (e, target) => {
-    e.preventDefault();
-    setTargets((prevTargets) => prevTargets.concat(target));
-  };
+  // const addNewTarget = (e, target) => {
+  // e.preventDefault();
+  // setTargets((prevTargets) => prevTargets.concat(target));
+  // };
 
   const deleteTarget = (id) => {
     let answer = window.confirm("Are you sure want to delete this target?");
