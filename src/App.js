@@ -19,6 +19,22 @@ function App() {
     setTargets((prevTargets) => prevTargets.concat(target));
   };
 
+  const editTarget = (e, targetId, newName, newInfo, newContact, newStatus) => {
+    e.preventDefault();
+    setTargets(
+      targets.map((t) => {
+        if (t.id !== targetId) return t;
+        return {
+          ...t,
+          name: newName,
+          info: newInfo,
+          contact: newContact,
+          status: newStatus,
+        };
+      })
+    );
+  };
+
   const deleteTarget = (id) => {
     let answer = window.confirm("Are you sure want to delete this target?");
     if (answer === true) {
@@ -47,12 +63,11 @@ function App() {
                   deleteTarget={deleteTarget}
                   targets={targets}
                   addNewTarget={addNewTarget}
+                  editTarget={editTarget}
                 />
                 <NewTarget addNewTarget={addNewTarget} />
               </Fragment>
             )}
-            // <TargetList deleteTarget={deleteTarget} targets={targets} />
-            // {/* <NewTarget addNewTarget={addNewTarget} /> */}
           />
           <Route
             path='/:id'

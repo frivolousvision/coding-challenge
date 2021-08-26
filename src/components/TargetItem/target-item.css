@@ -173,4 +173,7 @@ label {
     width: 100%;
     margin: 0 auto;
   }
+  .edit-delete-button-container {
+    width: 70%;
+  }
 }

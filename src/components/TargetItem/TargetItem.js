@@ -5,27 +5,11 @@ import { Link } from "react-router-dom";
 const TargetItem = (props) => {
   const [id] = useState(props.target.id);
   const [imgUrl] = useState(props.target.img_url);
-  const [name, setName] = useState(props.target.name);
-  const [info, setInfo] = useState(props.target.info);
-  const [contact, setContact] = useState(props.target.contact);
-  const [status, setStatus] = useState(props.target.status);
-
   const [newName, setNewName] = useState(props.target.name);
   const [newInfo, setNewInfo] = useState(props.target.info);
   const [newContact, setNewContact] = useState(props.target.contact);
+  const [newStatus, setNewStatus] = useState(props.target.status);
   const [editCompany, setEditCompany] = useState(false);
-
-  const handleStatusChange = (e) => {
-    e.preventDefault();
-    setStatus(e.target.value);
-  };
-
-  const editCurrentTarget = (e) => {
-    e.preventDefault();
-    setName(newName);
-    setInfo(newInfo);
-    setContact(newContact);
-  };
 
   const toggleForm = () => {
     !editCompany ? setEditCompany(true) : setEditCompany(false);
@@ -37,35 +21,40 @@ const TargetItem = (props) => {
         <div className='target-heading'>
           <Link to={`/${props.target.id}`}>
             {imgUrl ? <img src={imgUrl} alt='Company Logo'></img> : null}
-            <h2>{name}</h2>
+            <h2>{props.target.name}</h2>
           </Link>
         </div>
         <div className='target-information'>
-          <p>{info}</p>
+          <p>{props.target.info}</p>
         </div>
-        <p>{contact}</p>
+        <p>{props.target.contact}</p>
         <Link to={`/${props.target.id}`}>
           <div>More info</div>
         </Link>
         <div
           className={
-            status === "Researching"
+            newStatus === "Researching"
               ? "yellow status status-box"
-              : status === "Pending Approval"
+              : newStatus === "Pending Approval"
               ? "blue status status-box"
-              : status === "Approved"
+              : newStatus === "Approved"
               ? "green status status-box"
-              : status === "Declined"
+              : newStatus === "Declined"
               ? "red status status-box"
               : null
           }
         >
-          <strong className='status'>{status}</strong>
+          <strong className='status'>{newStatus}</strong>
         </div>
       </div>
 
       <div className={editCompany ? "show-form" : "hide-form"}>
-        <form onSubmit={(e) => editCurrentTarget(e)} className='form-content'>
+        <form
+          onSubmit={(e) =>
+            props.editTarget(e, id, newName, newInfo, newContact, newStatus)
+          }
+          className='form-content'
+        >
           {imgUrl ? (
             <div className='image-container'>
               <img src={imgUrl} alt='Company Logo' className='form-image'></img>
@@ -101,16 +90,16 @@ const TargetItem = (props) => {
           <div className=''>
             <label>Status</label>
             <select
-              value={status}
-              onChange={handleStatusChange}
+              value={newStatus}
+              onChange={(e) => setNewStatus(e.target.value)}
               className={
-                status === "Researching"
+                newStatus === "Researching"
                   ? "yellow status status-selector"
-                  : status === "Pending Approval"
+                  : newStatus === "Pending Approval"
                   ? "blue status status-selector"
-                  : status === "Approved"
+                  : newStatus === "Approved"
                   ? "green status status-selector"
-                  : status === "Declined"
+                  : newStatus === "Declined"
                   ? "red status status-selector"
                   : null
               }

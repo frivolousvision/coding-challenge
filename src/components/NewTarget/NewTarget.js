@@ -19,7 +19,7 @@ const NewTarget = (props) => {
   };
   return (
     <div className='new-target-form-container'>
-      <h3>Create new target</h3>
+      <h2>Create new target</h2>
       <form
         onSubmit={(e) =>
           props.addNewTarget(
@@ -69,7 +69,7 @@ const NewTarget = (props) => {
                 : null
             }
           >
-            <option value='' disabled selected>
+            <option value='' disabled defaultValue>
               status
             </option>
             <option value='Researching'>Researching</option>
