@@ -19,7 +19,18 @@ function App() {
     setTargets((prevTargets) => prevTargets.concat(target));
   };
 
-  const editTarget = (e, targetId, newName, newInfo, newContact, newStatus) => {
+  const editTarget = (
+    e,
+    targetId,
+    newName,
+    newInfo,
+    newContact,
+    newStatus,
+    newLocation,
+    newRevenue,
+    newFunding,
+    newSize
+  ) => {
     e.preventDefault();
     setTargets(
       targets.map((t) => {
@@ -30,6 +41,10 @@ function App() {
           info: newInfo,
           contact: newContact,
           status: newStatus,
+          location: newLocation,
+          revenue: newRevenue,
+          funding: newFunding,
+          size: newSize,
         };
       })
     );
@@ -60,8 +75,8 @@ function App() {
             component={() => (
               <Fragment>
                 <TargetList
-                  deleteTarget={deleteTarget}
                   targets={targets}
+                  deleteTarget={deleteTarget}
                   addNewTarget={addNewTarget}
                   editTarget={editTarget}
                 />
@@ -72,7 +87,14 @@ function App() {
           <Route
             path='/:id'
             exact
-            component={(props) => <TargetInfo {...props} targets={targets} />}
+            component={(props) => (
+              <TargetInfo
+                {...props}
+                targets={targets}
+                deleteTarget={deleteTarget}
+                editTarget={editTarget}
+              />
+            )}
           />
         </Switch>
       </Router>
