@@ -33,11 +33,6 @@ button {
 button:hover {
   background-color: rgba(0, 128, 0, 0.733);
 }
-.status-label {
-  margin-right: 2rem;
-  opacity: 0.7;
-  font-size: 0.8rem;
-}
 @media only screen and (max-width: 600px) {
   .new-target-form-container {
     width: 78%;

@@ -54,7 +54,6 @@ const NewTarget = (props) => {
           onChange={(e) => setContact(e.target.value)}
         ></input>
         <div className='status'>
-          <p className='status-label'>status</p>
           <select
             value={status}
             onChange={handleStatusChange}
@@ -70,6 +69,9 @@ const NewTarget = (props) => {
                 : null
             }
           >
+            <option value='' disabled selected>
+              status
+            </option>
             <option value='Researching'>Researching</option>
             <option value='Pending Approval'>Pending Approval</option>
             <option value='Approved'>Approved</option>
