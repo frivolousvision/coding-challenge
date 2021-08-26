@@ -6,6 +6,10 @@ const NewTarget = (props) => {
   const [info, setInfo] = useState("");
   const [contact, setContact] = useState("");
   const [status, setStatus] = useState("");
+  const [location, setLocation] = useState("");
+  const [revenue, setRevenue] = useState("");
+  const [funding, setFunding] = useState("");
+  const [size, setSize] = useState("");
 
   const handleStatusChange = (e) => {
     e.preventDefault();
@@ -30,6 +34,10 @@ const NewTarget = (props) => {
               info: info,
               status: status,
               contact: contact,
+              location: location.split(","),
+              revenue: revenue,
+              funding: funding,
+              size: size,
             },
             clearData()
           )
@@ -43,7 +51,7 @@ const NewTarget = (props) => {
         ></input>
         <textarea
           type='text'
-          placeholder='information'
+          placeholder='synopsis'
           value={info}
           onChange={(e) => setInfo(e.target.value)}
         ></textarea>
@@ -52,6 +60,34 @@ const NewTarget = (props) => {
           placeholder='contact'
           value={contact}
           onChange={(e) => setContact(e.target.value)}
+        ></input>
+        <input
+          type='text'
+          placeholder='location (states, separated by commas)'
+          value={location}
+          onChange={(e) => setLocation(e.target.value)}
+          className='form-input'
+        ></input>
+        <input
+          type='text'
+          placeholder='revenue'
+          value={revenue}
+          onChange={(e) => setRevenue(e.target.value)}
+          className='form-input'
+        ></input>
+        <input
+          type='text'
+          placeholder='funding'
+          value={funding}
+          onChange={(e) => setFunding(e.target.value)}
+          className='form-input'
+        ></input>
+        <input
+          type='text'
+          placeholder='company size'
+          value={size}
+          onChange={(e) => setSize(e.target.value)}
+          className='form-input'
         ></input>
         <div className='status'>
           <select

@@ -11,7 +11,14 @@ const EditTargetForm = (props) => {
     <div>
       <form
         onSubmit={(e) =>
-          props.editTarget(e, id, newName, newInfo, newContact, newStatus)
+          props.editTargetFromHome(
+            e,
+            id,
+            newName,
+            newInfo,
+            newContact,
+            newStatus
+          )
         }
         className='form-content'
       >

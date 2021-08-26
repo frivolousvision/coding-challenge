@@ -51,7 +51,7 @@ const TargetItem = (props) => {
         <EditTargetForm
           toggleForm={toggleForm}
           target={target}
-          editTarget={props.editTarget}
+          editTargetFromHome={props.editTargetFromHome}
         />
       </div>
       <div className='edit-delete-button-container'>

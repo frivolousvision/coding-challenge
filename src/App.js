@@ -17,6 +17,7 @@ function App() {
   const addNewTarget = (e, target) => {
     e.preventDefault();
     setTargets((prevTargets) => prevTargets.concat(target));
+    targets.map((t) => console.log(t));
   };
 
   const editTarget = (
@@ -50,6 +51,29 @@ function App() {
     );
   };
 
+  const editTargetFromHome = (
+    e,
+    targetId,
+    newName,
+    newInfo,
+    newContact,
+    newStatus
+  ) => {
+    e.preventDefault();
+    setTargets(
+      targets.map((t) => {
+        if (t.id !== targetId) return t;
+        return {
+          ...t,
+          name: newName,
+          info: newInfo,
+          contact: newContact,
+          status: newStatus,
+        };
+      })
+    );
+  };
+
   const deleteTarget = (id) => {
     let answer = window.confirm("Are you sure want to delete this target?");
     if (answer === true) {
@@ -78,7 +102,7 @@ function App() {
                   targets={targets}
                   deleteTarget={deleteTarget}
                   addNewTarget={addNewTarget}
-                  editTarget={editTarget}
+                  editTargetFromHome={editTargetFromHome}
                 />
                 <NewTarget addNewTarget={addNewTarget} />
               </Fragment>

@@ -9,7 +9,7 @@ const TargetList = (props) => {
           target={target}
           key={target.id}
           deleteTarget={props.deleteTarget}
-          editTarget={props.editTarget}
+          editTargetFromHome={props.editTargetFromHome}
         />
       ))}
     </div>

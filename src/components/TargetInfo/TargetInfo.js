@@ -47,12 +47,12 @@ const TargetInfo = ({ targets, match, deleteTarget, editTarget }, props) => {
       <div className={!editCompanyInfo ? "target-info" : "hide-target-info"}>
         {target ? (
           <div>
-            {target[0].img_url ? (
+            {target && target[0] && target[0].img_url ? (
               <img src={target[0].img_url} alt='Company Logo'></img>
             ) : (
-              <p>No information available</p>
+              <p>No image available</p>
             )}
-            {target[0].name ? (
+            {target && target[0] && target[0].name ? (
               <h2 className='name'>{target[0].name}</h2>
             ) : (
               <p>No information available</p>
@@ -186,7 +186,7 @@ const TargetInfo = ({ targets, match, deleteTarget, editTarget }, props) => {
             <label>Company Size</label>
             <input
               type='text'
-              placeholder='revenue'
+              placeholder='company size'
               value={newSize}
               onChange={(e) => setNewSize(e.target.value)}
               className='form-input'
