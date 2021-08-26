@@ -78,6 +78,7 @@ const TargetItem = (props) => {
             placeholder='name'
             value={newName}
             onChange={(e) => setNewName(e.target.value)}
+            className='form-input'
           ></input>
           <label>Company Information</label>
           <textarea
@@ -87,6 +88,7 @@ const TargetItem = (props) => {
             placeholder='information'
             value={newInfo}
             onChange={(e) => setNewInfo(e.target.value)}
+            className='form-input'
           ></textarea>
           <label>Contact</label>
           <input
@@ -94,6 +96,7 @@ const TargetItem = (props) => {
             placeholder='contact'
             value={newContact}
             onChange={(e) => setNewContact(e.target.value)}
+            className='form-input'
           ></input>
           <div className=''>
             <label>Status</label>

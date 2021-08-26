@@ -41,12 +41,12 @@ const NewTarget = (props) => {
           value={name}
           onChange={(e) => setName(e.target.value)}
         ></input>
-        <input
-          type='textarea'
+        <textarea
+          type='text'
           placeholder='information'
           value={info}
           onChange={(e) => setInfo(e.target.value)}
-        ></input>
+        ></textarea>
         <input
           type='text'
           placeholder='contact'
@@ -54,6 +54,7 @@ const NewTarget = (props) => {
           onChange={(e) => setContact(e.target.value)}
         ></input>
         <div className='status'>
+          <p className='status-label'>status</p>
           <select
             value={status}
             onChange={handleStatusChange}

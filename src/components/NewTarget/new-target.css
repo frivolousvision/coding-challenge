@@ -8,6 +8,7 @@
   margin: 0 auto;
   margin-bottom: 3rem;
   padding: 2rem;
+  border-radius: 5px;
 }
 form {
   display: flex;
@@ -17,10 +18,28 @@ input {
   margin-bottom: 1rem;
   border-width: 0 0 1px;
 }
+textarea {
+  margin-bottom: 1rem;
+  border-width: 0 0 1px;
+  font-family: "Open Sans";
+}
 button {
   border-radius: 3px;
   height: 2rem;
   width: 100%;
   background: transparent;
   border: 1px solid black;
+}
+button:hover {
+  background-color: rgba(0, 128, 0, 0.733);
+}
+.status-label {
+  margin-right: 2rem;
+  opacity: 0.7;
+  font-size: 0.8rem;
+}
+@media only screen and (max-width: 600px) {
+  .new-target-form-container {
+    width: 78%;
+  }
 }
