@@ -40,7 +40,9 @@ const TargetItem = (props) => {
             <h2>{name}</h2>
           </Link>
         </div>
-        <p>{info}</p>
+        <div className='target-information'>
+          <p>{info}</p>
+        </div>
         <p>{contact}</p>
         <Link to={`/${props.target.id}`}>
           <div>More info</div>
@@ -62,11 +64,7 @@ const TargetItem = (props) => {
         </div>
       </div>
 
-      <div
-        className={
-          editCompany ? "show-form target-items" : "hide-form target-items"
-        }
-      >
+      <div className={editCompany ? "show-form" : "hide-form"}>
         <form onSubmit={(e) => editCurrentTarget(e)} className='form-content'>
           {imgUrl ? (
             <div className='image-container'>
@@ -120,10 +118,10 @@ const TargetItem = (props) => {
               <option value='Declined'>Declined</option>
             </select>
           </div>
+          <button onClick={toggleForm} className='save-button'>
+            Save
+          </button>
         </form>
-        <button onClick={toggleForm} className='save-button'>
-          Save
-        </button>
       </div>
       <div className='edit-delete-button-container'>
         {!editCompany ? (

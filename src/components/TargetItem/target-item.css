@@ -143,7 +143,24 @@ label {
   width: 50%;
 }
 @media only screen and (max-width: 600px) {
+  input,
+  textarea,
+  select {
+    font-size: 16px;
+  }
   .target-items {
-    width: 90%;
+    width: 100%;
+    max-width: none;
+    margin: 2rem 0;
+  }
+  .show-info {
+    width: 100%;
+  }
+  .show-form {
+    width: 50%;
+  }
+  .target-information {
+    width: 100%;
+    margin: 0 auto;
   }
 }
