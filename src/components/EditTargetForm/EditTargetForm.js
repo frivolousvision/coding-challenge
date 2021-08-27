@@ -10,7 +10,7 @@ const EditTargetForm = (props) => {
   const [newStatus, setNewStatus] = useState(props.target.status);
 
   return (
-    <div>
+    <div className='form-container'>
       <form
         onSubmit={(e) =>
           props.editTargetFromHome(

@@ -70,8 +70,6 @@ label {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 70%;
-  min-width: 30rem;
   margin: 0 auto;
 }
 .image-container {
@@ -92,7 +90,6 @@ label {
   border-color: black;
   background-color: white;
   height: 2rem;
-  min-width: 21.5rem;
 }
 
 .show-form textarea {
@@ -103,7 +100,6 @@ label {
   border-color: black;
   background-color: white;
   min-width: 5rem;
-  max-width: 21.5rem;
   font-family: "Open Sans";
 }
 .save-button {
@@ -161,21 +157,28 @@ label {
   .show-info {
     width: 95%;
   }
-  .show-form {
-    padding: 1rem;
-    width: 50%;
-  }
-  .form-content {
-    max-width: 70%;
-  }
-  input.form-input {
-    max-width: 2px;
-  }
   .target-information {
     width: 100%;
     margin: 0 auto;
   }
   .edit-delete-button-container {
     width: 70%;
+  }
+  .show-form input {
+    min-width: 18rem;
+  }
+  .show-form textarea {
+    max-width: 18rem;
+  }
+}
+@media only screen and (min-width: 600px) {
+  .show-form {
+    min-width: 30rem;
+  }
+  .show-form input {
+    min-width: 21.5rem;
+  }
+  .show-form textarea {
+    max-width: 21.5rem;
   }
 }
