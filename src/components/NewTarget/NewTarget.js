@@ -53,7 +53,7 @@ const NewTarget = (props) => {
           onChange={(e) => setName(e.target.value)}
         ></input>
         <input
-          type='url'
+          type='text'
           placeholder='image url'
           value={imgUrl}
           onChange={(e) => setImgUrl(e.target.value)}
