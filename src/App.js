@@ -107,6 +107,7 @@ function App() {
               </Fragment>
             )}
           />
+
           <Route
             path='/:id'
             exact

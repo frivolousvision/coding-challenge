@@ -75,28 +75,24 @@ const NewTarget = (props) => {
           placeholder='location (separated by commas)'
           value={location}
           onChange={(e) => setLocation(e.target.value.split(","))}
-          className='form-input'
         ></input>
         <input
           type='text'
           placeholder='revenue'
           value={revenue}
           onChange={(e) => setRevenue(e.target.value)}
-          className='form-input'
         ></input>
         <input
           type='text'
           placeholder='funding'
           value={funding}
           onChange={(e) => setFunding(e.target.value)}
-          className='form-input'
         ></input>
         <input
           type='text'
           placeholder='company size'
           value={size}
           onChange={(e) => setSize(e.target.value)}
-          className='form-input'
         ></input>
         <div className='status'>
           <select
