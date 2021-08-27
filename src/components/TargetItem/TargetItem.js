@@ -2,6 +2,7 @@ import "./target-item.css";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import EditTargetForm from "../EditTargetForm/EditTargetForm";
+import { classNameSelector } from "../../util/classNameSelector";
 
 const TargetItem = (props) => {
   const [target] = useState(props.target);
@@ -30,20 +31,10 @@ const TargetItem = (props) => {
         <Link to={`/${props.target.id}`}>
           <div>More info</div>
         </Link>
-        <div
-          className={
-            newStatus === "Researching"
-              ? "yellow status status-box"
-              : newStatus === "Pending Approval"
-              ? "blue status status-box"
-              : newStatus === "Approved"
-              ? "green status status-box"
-              : newStatus === "Declined"
-              ? "red status status-box"
-              : null
-          }
-        >
-          <strong className='status'>{newStatus}</strong>
+        <div className={props.target.status}>
+          <strong className={classNameSelector(props.target.status)}>
+            {props.target.status}
+          </strong>
         </div>
       </div>
 

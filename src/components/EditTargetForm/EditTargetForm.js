@@ -1,34 +1,9 @@
 import { useState } from "react";
 import "./edit-target-form.css";
+import { classNameSelector } from "../../util/classNameSelector";
 
 const EditTargetForm = (props) => {
-  const [editTarget, setEditTarget] = useState({
-    id: props.target.id,
-    img_url: props.target.img_url,
-    name: props.target.name,
-    info: props.target.info,
-    contact: props.target.contact,
-    status: props.target.status,
-  });
-
-  let statusClassName;
-
-  switch (editTarget.status) {
-    case "Approved":
-      statusClassName = "green status status-selector";
-      break;
-    case "Researching":
-      statusClassName = "yellow status status-selector";
-      break;
-    case "Pending Approval":
-      statusClassName = "blue status status-selector";
-      break;
-    case "Declined":
-      statusClassName = "red status status-selector";
-      break;
-    default:
-      statusClassName = null;
-  }
+  const [editTarget, setEditTarget] = useState(props.target);
 
   return (
     <div className='form-container'>
@@ -85,7 +60,7 @@ const EditTargetForm = (props) => {
             onChange={(e) =>
               setEditTarget({ ...editTarget, status: e.target.value })
             }
-            className={statusClassName}
+            className={classNameSelector(editTarget.status)}
           >
             <option value='Researching'>Researching</option>
             <option value='Pending Approval'>Pending Approval</option>
