@@ -42,6 +42,25 @@ const TargetInfo = ({ targets, match, deleteTarget, editTarget }, props) => {
     !editCompanyInfo ? setEditCompanyInfo(true) : setEditCompanyInfo(false);
   };
 
+  let statusClassName;
+
+  switch (editTarget.status) {
+    case "Approved":
+      statusClassName = "green status status-selector";
+      break;
+    case "Researching":
+      statusClassName = "yellow status status-selector";
+      break;
+    case "Pending Approval":
+      statusClassName = "blue status status-selector";
+      break;
+    case "Declined":
+      statusClassName = "red status status-selector";
+      break;
+    default:
+      statusClassName = null;
+  }
+
   return (
     <div className='target-info'>
       <div className={!editCompanyInfo ? "target-info" : "hide-target-info"}>
@@ -143,8 +162,8 @@ const TargetInfo = ({ targets, match, deleteTarget, editTarget }, props) => {
               type='text'
               autoFocus
               placeholder='name'
-              value={newName}
-              onChange={(e) => setNewName(e.target.value)}
+              value={target.name}
+              onChange={(e) => setTarget({ ...target, name: e.target.value })}
               className='form-input'
             ></input>
             <label>Company Info</label>
@@ -153,27 +172,31 @@ const TargetInfo = ({ targets, match, deleteTarget, editTarget }, props) => {
               rows='5'
               cols='50'
               placeholder='information'
-              value={newInfo}
-              onChange={(e) => setNewInfo(e.target.value)}
+              value={target.info}
+              onChange={(e) => setTarget({ ...target, info: e.target.value })}
               className='form-input'
             ></textarea>
             <label>Contact</label>
             <input
               type='text'
               placeholder='contact'
-              value={newContact}
-              onChange={(e) => setNewContact(e.target.value)}
+              value={target.contact}
+              onChange={(e) =>
+                setTarget({ ...target, contact: e.target.value })
+              }
               className='form-input'
             ></input>
             <label>Location</label>
             <span className='comma-directions'>
-              (separate states by commmas)
+              (separate locations by commmas)
             </span>
             <input
               type='text'
               placeholder='location'
-              value={newLocation}
-              onChange={(e) => setNewLocation(e.target.value.split(","))}
+              value={target.location}
+              onChange={(e) =>
+                setTarget({ ...target, location: e.target.value.split(",") })
+              }
               className='form-input'
             ></input>
             <label>Revenue</label>
@@ -205,17 +228,7 @@ const TargetInfo = ({ targets, match, deleteTarget, editTarget }, props) => {
               <select
                 value={newStatus}
                 onChange={(e) => setNewStatus(e.target.value)}
-                className={
-                  newStatus === "Researching"
-                    ? "yellow status status-selector"
-                    : newStatus === "Pending Approval"
-                    ? "blue status status-selector"
-                    : newStatus === "Approved"
-                    ? "green status status-selector"
-                    : newStatus === "Declined"
-                    ? "red status status-selector"
-                    : null
-                }
+                className={statusClassName}
               >
                 <option value='Researching'>Researching</option>
                 <option value='Pending Approval'>Pending Approval</option>

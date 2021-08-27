@@ -2,31 +2,47 @@ import { useState } from "react";
 import "./edit-target-form.css";
 
 const EditTargetForm = (props) => {
-  const [id] = useState(props.target.id);
-  const [imgUrl] = useState(props.target.img_url);
-  const [newName, setNewName] = useState(props.target.name);
-  const [newInfo, setNewInfo] = useState(props.target.info);
-  const [newContact, setNewContact] = useState(props.target.contact);
-  const [newStatus, setNewStatus] = useState(props.target.status);
+  const [editTarget, setEditTarget] = useState({
+    id: props.target.id,
+    img_url: props.target.img_url,
+    name: props.target.name,
+    info: props.target.info,
+    contact: props.target.contact,
+    status: props.target.status,
+  });
+
+  let statusClassName;
+
+  switch (editTarget.status) {
+    case "Approved":
+      statusClassName = "green status status-selector";
+      break;
+    case "Researching":
+      statusClassName = "yellow status status-selector";
+      break;
+    case "Pending Approval":
+      statusClassName = "blue status status-selector";
+      break;
+    case "Declined":
+      statusClassName = "red status status-selector";
+      break;
+    default:
+      statusClassName = null;
+  }
 
   return (
     <div className='form-container'>
       <form
-        onSubmit={(e) =>
-          props.editTargetFromHome(
-            e,
-            id,
-            newName,
-            newInfo,
-            newContact,
-            newStatus
-          )
-        }
+        onSubmit={(e) => props.editTargetFromHome(e, editTarget)}
         className='form-content'
       >
-        {imgUrl ? (
+        {editTarget.img_url ? (
           <div className='image-container'>
-            <img src={imgUrl} alt='Company Logo' className='form-image'></img>
+            <img
+              src={editTarget.img_url}
+              alt='Company Logo'
+              className='form-image'
+            ></img>
           </div>
         ) : null}
         <label>Name</label>
@@ -34,8 +50,10 @@ const EditTargetForm = (props) => {
           type='text'
           autoFocus
           placeholder='name'
-          value={newName}
-          onChange={(e) => setNewName(e.target.value)}
+          value={editTarget.name}
+          onChange={(e) =>
+            setEditTarget({ ...editTarget, name: e.target.value })
+          }
           className='form-input'
         ></input>
         <label>Company Information</label>
@@ -43,35 +61,31 @@ const EditTargetForm = (props) => {
           type='text'
           rows='5'
           cols='50'
-          placeholder='information'
-          value={newInfo}
-          onChange={(e) => setNewInfo(e.target.value)}
+          placeholder='company bio'
+          value={editTarget.info}
+          onChange={(e) =>
+            setEditTarget({ ...editTarget, info: e.target.value })
+          }
           className='form-input'
         ></textarea>
         <label>Contact</label>
         <input
           type='text'
-          placeholder='contact'
-          value={newContact}
-          onChange={(e) => setNewContact(e.target.value)}
+          placeholder='Contact Information'
+          value={editTarget.contact}
+          onChange={(e) =>
+            setEditTarget({ ...editTarget, contact: e.target.value })
+          }
           className='form-input'
         ></input>
         <div className='status-selector-container'>
           <label>Status</label>
           <select
-            value={newStatus}
-            onChange={(e) => setNewStatus(e.target.value)}
-            className={
-              newStatus === "Researching"
-                ? "yellow status status-selector"
-                : newStatus === "Pending Approval"
-                ? "blue status status-selector"
-                : newStatus === "Approved"
-                ? "green status status-selector"
-                : newStatus === "Declined"
-                ? "red status status-selector"
-                : null
+            value={editTarget.status}
+            onChange={(e) =>
+              setEditTarget({ ...editTarget, status: e.target.value })
             }
+            className={statusClassName}
           >
             <option value='Researching'>Researching</option>
             <option value='Pending Approval'>Pending Approval</option>
