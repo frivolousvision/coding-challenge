@@ -48,7 +48,11 @@ const TargetInfo = ({ targets, match, deleteTarget, editTarget }, props) => {
         {target ? (
           <div>
             {target && target[0] && target[0].img_url ? (
-              <img src={target[0].img_url} alt='Company Logo'></img>
+              <img
+                src={target[0].img_url}
+                alt='Company Logo'
+                className='company-logo'
+              ></img>
             ) : (
               <p>No image available</p>
             )}

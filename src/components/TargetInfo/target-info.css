@@ -1,6 +1,9 @@
 .name {
   margin-top: 3rem;
 }
+.company-logo {
+  margin-top: -7rem;
+}
 .target-info {
   margin: 5rem auto;
   display: flex;
@@ -41,5 +44,13 @@
   }
   .details-content {
     margin: 1rem;
+  }
+}
+@media only screen and (min-width: 800px) {
+  .target-info {
+    width: 60%;
+  }
+  .edit-delete-button-container {
+    margin-top: -3rem;
   }
 }
