@@ -1,4 +1,6 @@
 import { useState } from "react";
+import "./edit-target-form.css";
+
 const EditTargetForm = (props) => {
   const [id] = useState(props.target.id);
   const [imgUrl] = useState(props.target.img_url);
@@ -54,7 +56,7 @@ const EditTargetForm = (props) => {
           onChange={(e) => setNewContact(e.target.value)}
           className='form-input'
         ></input>
-        <div className=''>
+        <div className='status-selector-container'>
           <label>Status</label>
           <select
             value={newStatus}

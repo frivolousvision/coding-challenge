@@ -52,46 +52,51 @@ const TargetInfo = ({ targets, match, deleteTarget, editTarget }, props) => {
             ) : (
               <p>No image available</p>
             )}
-            {target && target[0] && target[0].name ? (
-              <h2 className='name'>{target[0].name}</h2>
+            {newName ? (
+              <h2 className='name'>{newName}</h2>
             ) : (
               <p>No information available</p>
             )}
-            <p className='summary'>{target[0].info}</p>
+            <p className='summary'>{newInfo}</p>
             <div className='target-details'>
               <div className='details-content'>
                 <strong>Status:</strong>
-                <p>{target[0].status}</p>
+                <p>{newStatus}</p>
               </div>
               <div className='details-content'>
                 <strong>Contact Info:</strong>
-                <p>{target[0].contact}</p>
+                <p>{newContact}</p>
               </div>
               <div className='details-content'>
-                {target[0].location.length > 1 ? (
+                {newLocation.length > 1 ? (
                   <strong>Locations:</strong>
                 ) : (
                   <strong>Location:</strong>
                 )}
-                {target[0].location.map((city, i) => {
-                  return <p key={i}>{city}</p>;
-                })}
+
+                {Array.isArray(newLocation) ? (
+                  newLocation.map((city, i) => {
+                    return <p key={i}>{city}</p>;
+                  })
+                ) : (
+                  <p>{newLocation}</p>
+                )}
               </div>
               <div className='details-content'>
                 <strong>Yearly Revenue:</strong>
-                <p>${target[0].revenue}</p>
+                <p>${newRevenue}</p>
               </div>
               <div className='details-content'>
                 <strong>Total Funding:</strong>
-                {target[0].funding ? (
-                  <p>{target[0].funding}</p>
+                {newFunding ? (
+                  <p>{newFunding}</p>
                 ) : (
                   <p>No information available</p>
                 )}
               </div>
               <div className='details-content'>
                 <strong>Company size:</strong>
-                <p>{target[0].size} people</p>
+                <p>{newSize} people</p>
               </div>
             </div>
           </div>
@@ -112,7 +117,7 @@ const TargetInfo = ({ targets, match, deleteTarget, editTarget }, props) => {
                 newInfo,
                 newContact,
                 newStatus,
-                newLocation.split(","),
+                newLocation,
                 newRevenue,
                 newFunding,
                 newSize
@@ -164,7 +169,7 @@ const TargetInfo = ({ targets, match, deleteTarget, editTarget }, props) => {
               type='text'
               placeholder='location'
               value={newLocation}
-              onChange={(e) => setNewLocation(e.target.value)}
+              onChange={(e) => setNewLocation(e.target.value.split(","))}
               className='form-input'
             ></input>
             <label>Revenue</label>

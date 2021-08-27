@@ -16,8 +16,7 @@ function App() {
 
   const addNewTarget = (e, target) => {
     e.preventDefault();
-    setTargets((prevTargets) => prevTargets.concat(target));
-    targets.map((t) => console.log(t));
+    setTargets((targets) => targets.concat(target));
   };
 
   const editTarget = (
@@ -104,7 +103,7 @@ function App() {
                   addNewTarget={addNewTarget}
                   editTargetFromHome={editTargetFromHome}
                 />
-                <NewTarget addNewTarget={addNewTarget} />
+                <NewTarget addNewTarget={addNewTarget} targets={targets} />
               </Fragment>
             )}
           />

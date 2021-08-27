@@ -2,6 +2,8 @@ import { useState } from "react";
 import "./new-target.css";
 
 const NewTarget = (props) => {
+  const [newId] = useState((props.targets.length + 1).toString());
+  const [imgUrl, setImgUrl] = useState("");
   const [name, setName] = useState("");
   const [info, setInfo] = useState("");
   const [contact, setContact] = useState("");
@@ -29,12 +31,13 @@ const NewTarget = (props) => {
           props.addNewTarget(
             e,
             {
-              id: 10,
+              id: newId,
+              img_url: imgUrl,
               name: name,
               info: info,
               status: status,
               contact: contact,
-              location: location.split(","),
+              location: location,
               revenue: revenue,
               funding: funding,
               size: size,
@@ -48,6 +51,12 @@ const NewTarget = (props) => {
           placeholder='name'
           value={name}
           onChange={(e) => setName(e.target.value)}
+        ></input>
+        <input
+          type='url'
+          placeholder='image url'
+          value={imgUrl}
+          onChange={(e) => setImgUrl(e.target.value)}
         ></input>
         <textarea
           type='text'
@@ -63,9 +72,9 @@ const NewTarget = (props) => {
         ></input>
         <input
           type='text'
-          placeholder='location (states, separated by commas)'
+          placeholder='location (separated by commas)'
           value={location}
-          onChange={(e) => setLocation(e.target.value)}
+          onChange={(e) => setLocation(e.target.value.split(","))}
           className='form-input'
         ></input>
         <input

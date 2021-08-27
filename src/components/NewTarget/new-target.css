@@ -4,7 +4,7 @@
   justify-content: center;
   align-items: center;
   background-color: white;
-  max-width: 30rem;
+  max-width: 26rem;
   margin: 0 auto;
   margin-bottom: 3rem;
   padding: 2rem;
@@ -13,6 +13,7 @@
 form {
   display: flex;
   flex-direction: column;
+  width: 80%;
 }
 input {
   margin-bottom: 1rem;
@@ -22,6 +23,7 @@ textarea {
   margin-bottom: 1rem;
   border-width: 0 0 1px;
   font-family: "Open Sans";
+  height: 5rem;
 }
 button {
   border-radius: 3px;
