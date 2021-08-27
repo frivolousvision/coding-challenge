@@ -37,6 +37,12 @@
   opacity: 0.8;
   font-size: 0.5rem;
 }
+.edit-cancel-button {
+  cursor: pointer;
+}
+.delete-button {
+  cursor: pointer;
+}
 @media only screen and (max-width: 600px) {
   .target-info {
     padding: 1rem;

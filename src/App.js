@@ -82,6 +82,12 @@ function App() {
       return;
     }
   };
+  const filterTargets = (filter) => {
+    setTargets(data.filter((t) => t.status === filter));
+  };
+  const showAll = () => {
+    setTargets(data);
+  };
 
   useEffect(() => {
     setTargets(data);
@@ -90,7 +96,7 @@ function App() {
   return (
     <div className='App'>
       <Router>
-        <Header />
+        <Header filterTargets={filterTargets} />
         <Switch>
           <Route
             path='/'
@@ -107,7 +113,6 @@ function App() {
               </Fragment>
             )}
           />
-
           <Route
             path='/:id'
             exact
