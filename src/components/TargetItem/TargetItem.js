@@ -26,9 +26,12 @@ const TargetItem = (props) => {
         <div className='target-information'>
           <p>{props.target.info}</p>
         </div>
+        <h4 className='contact-header'>Contact:</h4>
         <p>{props.target.contact}</p>
         <Link to={`/${props.target.id}`}>
-          <div>Learn more about {props.target.name}</div>
+          <div className='learn-more-container'>
+            <p>Learn more about {props.target.name}</p>
+          </div>
         </Link>
         <div className={props.target.status}>
           <strong className={classNameSelector(props.target.status)}>

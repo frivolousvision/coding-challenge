@@ -12,6 +12,7 @@ p {
   border-radius: 5px;
   width: 100%;
   max-width: 30rem;
+  margin-top: 0rem;
 }
 .target-items img {
   max-height: 12rem;
@@ -38,6 +39,26 @@ p {
 .red {
   background-color: rgba(255, 0, 0, 0.7);
 }
+.contact-header {
+  margin-bottom: -1rem;
+  margin-top: 0rem;
+}
+.learn-more-container {
+  border: 1px solid black;
+  padding: 0rem;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+.learn-more-container p {
+  color: black;
+  text-decoration: none;
+  padding: 0rem;
+}
+a:link {
+  text-decoration: none;
+}
 .status {
   margin: 0 auto;
   margin-top: 1rem;
@@ -50,7 +71,6 @@ p {
   align-items: center;
   justify-content: center;
 }
-
 .status-selector {
   border: none;
   text-align: center;
@@ -94,7 +114,6 @@ label {
   background-color: white;
   height: 2rem;
 }
-
 .show-form textarea {
   font-size: 1rem;
   margin: 0.5rem auto;
@@ -141,9 +160,9 @@ label {
 .edit-delete-button-container {
   display: flex;
   justify-content: center;
-  margin-top: 0.5rem;
+  margin-top: -1rem;
   margin-bottom: 2rem;
-  width: 50%;
+  width: 70%;
 }
 @media only screen and (max-width: 600px) {
   input,
@@ -164,8 +183,12 @@ label {
     width: 100%;
     margin: 0 auto;
   }
+  .contact-header {
+    margin-bottom: -1rem;
+    margin-top: 0rem;
+  }
   .edit-delete-button-container {
-    width: 70%;
+    width: 95%;
   }
   .show-form input {
     min-width: 18rem;

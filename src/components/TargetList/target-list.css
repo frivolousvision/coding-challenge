@@ -5,6 +5,11 @@
   flex-wrap: wrap;
   justify-content: center;
 }
+@media only screen and (max-width: 600px) {
+  .target-list {
+    margin-top: 3rem;
+  }
+}
 @media only screen and (min-width: 600px) {
   .target-list {
     width: 80%;

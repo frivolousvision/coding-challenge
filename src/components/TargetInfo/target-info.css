@@ -23,7 +23,7 @@
   margin-top: -7rem;
 }
 .target-info {
-  margin: 5rem auto;
+  margin: 4rem auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -44,9 +44,10 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-evenly;
+  margin-bottom: -5rem;
 }
 .details-content {
-  margin: 2rem;
+  margin: 1rem 2rem;
 }
 .details-content p {
   margin-top: 0.5rem;
