@@ -12,21 +12,15 @@ const Header = (props) => {
 
   const toggleMenu = () => {
     if (!showMenu) {
-      // document.getElementsByClassName("mobile-menu-contents")[0].style.display =
-      //   "contents";
       document.getElementById("menu-contents").style.display = "contents";
       document.getElementsByClassName("mobile-menu")[0].style.width = "20rem";
       document.getElementsByClassName("bars")[0].style.transform =
         "rotate(360deg)";
-      document.getElementsByClassName("bars")[0].style.right = "-20px";
       setShowMenu(true);
     }
     if (showMenu) {
       document.getElementsByClassName("mobile-menu")[0].style.width = "0";
-      // document.getElementsByClassName("mobile-menu-contents")[0].style.display =
-      // "none";
       document.getElementById("menu-contents").style.display = "none";
-      document.getElementsByClassName("bars")[0].style.display = "block";
       document.getElementsByClassName("bars")[0].style.transform =
         "rotate(-360deg)";
       setShowMenu(false);

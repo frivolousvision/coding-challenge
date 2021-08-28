@@ -56,9 +56,6 @@
   transition: 400ms;
   box-shadow: -1px 1px 1px rgb(94, 94, 94);
 }
-/* .mobile-menu-contents {
-  display: none;
-} */
 #menu-contents {
   display: none;
 }
