@@ -56,6 +56,7 @@ const EditTargetForm = (props) => {
         <div className='status-selector-container'>
           <label>Status</label>
           <select
+            required
             value={editTarget.status}
             onChange={(e) =>
               setEditTarget({ ...editTarget, status: e.target.value })

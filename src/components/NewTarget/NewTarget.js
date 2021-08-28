@@ -75,6 +75,7 @@ const NewTarget = (props) => {
         ></input>
         <div className='status'>
           <select
+            required
             value={newTarget.status || ""}
             onChange={(e) =>
               setNewTarget({ ...newTarget, status: e.target.value })

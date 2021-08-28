@@ -192,6 +192,7 @@ const TargetInfo = ({ targets, match, deleteTarget, editTarget }, props) => {
             <div className=''>
               <label>Status</label>
               <select
+                required
                 value={target.status}
                 onChange={(e) =>
                   setTarget({ ...target, status: e.target.value })

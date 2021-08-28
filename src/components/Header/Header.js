@@ -12,6 +12,7 @@ const Header = (props) => {
       <Link to='/'>
         <h2 onClick={() => scrollTop()}>Target Acquisitions</h2>
       </Link>
+      {/* <Link to='/create-target'>Create Target</Link> */}
       {/* <p onClick={() => props.filterTargets(approved)}>Approved</p> */}
       {/* <p onClick={() => props.filterTargets(researching)}>Researching</p> */}
     </nav>

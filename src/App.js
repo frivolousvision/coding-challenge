@@ -104,6 +104,15 @@ function App() {
               />
             )}
           />
+          <Route
+            path='/create-target'
+            exact
+            component={() => (
+              <Fragment>
+                <NewTarget addNewTarget={addNewTarget} targets={targets} />
+              </Fragment>
+            )}
+          />
         </Switch>
       </Router>
     </div>

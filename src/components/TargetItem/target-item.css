@@ -132,6 +132,7 @@ label {
   background-color: green;
   border: none;
   color: white;
+  margin-bottom: 2rem;
 }
 .show-form button:hover {
   background-color: rgb(4, 163, 4);
