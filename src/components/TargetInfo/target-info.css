@@ -1,3 +1,21 @@
+.next-previous-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: -2rem;
+  width: 100%;
+}
+.next-button-only {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: -2rem;
+  width: 100%;
+}
+.next-previous-buttons button {
+  width: 8rem;
+}
+.next-button-only button {
+  width: 8rem;
+}
 .name {
   margin-top: 3rem;
 }
@@ -48,11 +66,20 @@
 }
 @media only screen and (max-width: 600px) {
   .target-info {
+    margin-top: 4rem;
     padding: 1rem;
     width: 90%;
   }
   .details-content {
     margin: 1rem;
+  }
+  .next-previous-buttons {
+    margin-top: 0rem;
+    margin-bottom: 3rem;
+  }
+  .next-button-only {
+    margin-top: 0rem;
+    margin-bottom: 3rem;
   }
 }
 @media only screen and (min-width: 800px) {
