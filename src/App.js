@@ -19,55 +19,37 @@ function App() {
     setTargets((targets) => targets.concat(target));
   };
 
-  const editTarget = (
-    e,
-    targetId,
-    newName,
-    newInfo,
-    newContact,
-    newStatus,
-    newLocation,
-    newRevenue,
-    newFunding,
-    newSize
-  ) => {
+  const editTarget = (e, targetObject) => {
     e.preventDefault();
     setTargets(
       targets.map((t) => {
-        if (t.id !== targetId) return t;
+        if (t.id !== targetObject.id) return t;
         return {
           ...t,
-          name: newName,
-          info: newInfo,
-          contact: newContact,
-          status: newStatus,
-          location: newLocation,
-          revenue: newRevenue,
-          funding: newFunding,
-          size: newSize,
+          name: targetObject.name,
+          info: targetObject.info,
+          contact: targetObject.contact,
+          status: targetObject.status,
+          location: targetObject.location,
+          revenue: targetObject.revenue,
+          funding: targetObject.funding,
+          size: targetObject.size,
         };
       })
     );
   };
 
-  const editTargetFromHome = (
-    e,
-    targetId,
-    newName,
-    newInfo,
-    newContact,
-    newStatus
-  ) => {
+  const editTargetFromHome = (e, targetObject) => {
     e.preventDefault();
     setTargets(
       targets.map((t) => {
-        if (t.id !== targetId) return t;
+        if (t.id !== targetObject.id) return t;
         return {
           ...t,
-          name: newName,
-          info: newInfo,
-          contact: newContact,
-          status: newStatus,
+          name: targetObject.name,
+          info: targetObject.info,
+          contact: targetObject.contact,
+          status: targetObject.status,
         };
       })
     );
@@ -84,9 +66,6 @@ function App() {
   };
   const filterTargets = (filter) => {
     setTargets(data.filter((t) => t.status === filter));
-  };
-  const showAll = () => {
-    setTargets(data);
   };
 
   useEffect(() => {

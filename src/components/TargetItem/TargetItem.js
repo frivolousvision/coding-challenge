@@ -2,12 +2,10 @@ import "./target-item.css";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import EditTargetForm from "../EditTargetForm/EditTargetForm";
+import { classNameSelector } from "../../util/classNameSelector";
 
 const TargetItem = (props) => {
-  const [target] = useState(props.target);
   const [id] = useState(props.target.id);
-  const [imgUrl] = useState(props.target.img_url);
-  const [newStatus] = useState(props.target.status);
   const [editCompany, setEditCompany] = useState(false);
 
   const toggleForm = () => {
@@ -19,7 +17,9 @@ const TargetItem = (props) => {
       <div className={!editCompany ? "show-info" : "hide-form"}>
         <div className='target-heading'>
           <Link to={`/${props.target.id}`}>
-            {imgUrl ? <img src={imgUrl} alt='Company Logo'></img> : null}
+            {props.target.img_url ? (
+              <img src={props.target.img_url} alt='Company Logo'></img>
+            ) : null}
             <h2>{props.target.name}</h2>
           </Link>
         </div>
@@ -28,29 +28,19 @@ const TargetItem = (props) => {
         </div>
         <p>{props.target.contact}</p>
         <Link to={`/${props.target.id}`}>
-          <div>More info</div>
+          <div>Learn more about {props.target.name}</div>
         </Link>
-        <div
-          className={
-            newStatus === "Researching"
-              ? "yellow status status-box"
-              : newStatus === "Pending Approval"
-              ? "blue status status-box"
-              : newStatus === "Approved"
-              ? "green status status-box"
-              : newStatus === "Declined"
-              ? "red status status-box"
-              : null
-          }
-        >
-          <strong className='status'>{newStatus}</strong>
+        <div className={props.target.status}>
+          <strong className={classNameSelector(props.target.status)}>
+            {props.target.status}
+          </strong>
         </div>
       </div>
 
       <div className={editCompany ? "show-form" : "hide-form"}>
         <EditTargetForm
           toggleForm={toggleForm}
-          target={target}
+          target={props.target}
           editTargetFromHome={props.editTargetFromHome}
         />
       </div>

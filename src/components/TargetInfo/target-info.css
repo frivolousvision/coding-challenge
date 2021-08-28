@@ -15,6 +15,9 @@
   border-radius: 5px;
   padding: 3rem;
 }
+.target-info img {
+  max-height: 13rem;
+}
 .hide-target-info {
   display: none;
 }
