@@ -16,7 +16,6 @@ const TargetInfo = ({ targets, match, deleteTarget, editTarget }, props) => {
     });
     setTarget(filterdTarget);
     window.scrollTo(0, 0);
-    console.log("hey");
 
     const getNextId = () => {
       if (targets) {
