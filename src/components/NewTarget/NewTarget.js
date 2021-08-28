@@ -1,11 +1,11 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./new-target.css";
+import { classNameSelector } from "../../util/classNameSelector";
 
 const NewTarget = (props) => {
   const [newTarget, setNewTarget] = useState({
     id: (props.targets.length + 1).toString(),
   });
-  const [status, setStatus] = useState("");
 
   const clearData = () => {
     setNewTarget("");
@@ -79,17 +79,7 @@ const NewTarget = (props) => {
             onChange={(e) =>
               setNewTarget({ ...newTarget, status: e.target.value })
             }
-            className={
-              status === "Researching"
-                ? "yellow status status-selector"
-                : status === "Pending Approval"
-                ? "blue status status-selector"
-                : status === "Approved"
-                ? "green status status-selector"
-                : status === "Declined"
-                ? "red status status-selector"
-                : null
-            }
+            className={classNameSelector(newTarget.status)}
           >
             <option disabled defaultValue>
               status
