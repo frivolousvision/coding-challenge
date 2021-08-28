@@ -12,8 +12,9 @@ const Header = (props) => {
 
   const toggleMenu = () => {
     if (!showMenu) {
-      document.getElementsByClassName("mobile-menu-contents")[0].style.display =
-        "contents";
+      // document.getElementsByClassName("mobile-menu-contents")[0].style.display =
+      //   "contents";
+      document.getElementById("menu-contents").style.display = "contents";
       document.getElementsByClassName("mobile-menu")[0].style.width = "20rem";
       document.getElementsByClassName("bars")[0].style.transform =
         "rotate(360deg)";
@@ -22,8 +23,9 @@ const Header = (props) => {
     }
     if (showMenu) {
       document.getElementsByClassName("mobile-menu")[0].style.width = "0";
-      document.getElementsByClassName("mobile-menu-contents")[0].style.display =
-        "none";
+      // document.getElementsByClassName("mobile-menu-contents")[0].style.display =
+      // "none";
+      document.getElementById("menu-contents").style.display = "none";
       document.getElementsByClassName("bars")[0].style.display = "block";
       document.getElementsByClassName("bars")[0].style.transform =
         "rotate(-360deg)";
@@ -70,7 +72,7 @@ const Header = (props) => {
         />
       </div>
       <div className='mobile-menu'>
-        <div className='mobile-menu-contents'>
+        <div className='mobile-menu-contents' id='menu-contents'>
           <div className='ul-container'>
             <ul>
               {props.targets
