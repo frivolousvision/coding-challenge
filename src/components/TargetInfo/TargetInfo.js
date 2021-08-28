@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Redirect, Link } from "react-router-dom";
 import "./target-info.css";
 import { classNameSelector } from "../../util/classNameSelector";
@@ -7,6 +7,8 @@ const TargetInfo = ({ targets, match, deleteTarget, editTarget }, props) => {
   const [target, setTarget] = useState(targets);
   const [redirect, setRedirect] = useState(false);
   const [editCompanyInfo, setEditCompanyInfo] = useState(false);
+  const [nextId, setNextId] = useState(null);
+  const [previousId, setPreviousId] = useState(null);
 
   useEffect(() => {
     const filterdTarget = targets.find((t) => {
@@ -14,6 +16,34 @@ const TargetInfo = ({ targets, match, deleteTarget, editTarget }, props) => {
     });
     setTarget(filterdTarget);
     window.scrollTo(0, 0);
+    console.log("hey");
+
+    const getNextId = () => {
+      if (targets) {
+        const currentIndex = targets.findIndex((t) => match.params.id === t.id);
+        if (currentIndex + 1 < targets.length && currentIndex !== -1) {
+          const nextIndex =
+            targets.findIndex((t) => match.params.id === t.id) + 1;
+          setNextId(targets[nextIndex].id);
+        } else {
+          setNextId(null);
+        }
+      }
+    };
+    const getPreviousId = () => {
+      if (targets) {
+        const currentIndex = targets.findIndex((t) => match.params.id === t.id);
+        if (currentIndex !== 0 && currentIndex !== -1) {
+          const prevIndex =
+            targets.findIndex((t) => match.params.id === t.id) - 1;
+          setPreviousId(targets[prevIndex].id);
+        } else {
+          setPreviousId(null);
+        }
+      }
+    };
+    getNextId();
+    getPreviousId();
   }, [targets, match.params]);
 
   const toggleForm = () => {
@@ -23,17 +53,15 @@ const TargetInfo = ({ targets, match, deleteTarget, editTarget }, props) => {
   return (
     <div className='target-info'>
       <div
-        className={
-          match.params.id !== "1" ? "next-previous-buttons" : "next-button-only"
-        }
+        className={previousId ? "next-previous-buttons" : "next-button-only"}
       >
-        {match.params.id > 1 ? (
-          <Link to={`/${(+target.id - 1).toString()}`}>
+        {previousId > 0 ? (
+          <Link to={`/${previousId.toString()}`}>
             <button>Previous Target</button>
           </Link>
         ) : null}
-        {match.params.id < targets.length ? (
-          <Link to={`/${(+target.id + 1).toString()}`}>
+        {nextId ? (
+          <Link to={`/${nextId.toString()}`}>
             <button>Next Target</button>
           </Link>
         ) : null}
@@ -87,7 +115,7 @@ const TargetInfo = ({ targets, match, deleteTarget, editTarget }, props) => {
               <div className='details-content'>
                 <strong>Total Funding:</strong>
                 {target.funding ? (
-                  <p>{target.funding}</p>
+                  <p>${target.funding}</p>
                 ) : (
                   <p>No information available</p>
                 )}

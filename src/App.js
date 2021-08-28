@@ -70,6 +70,8 @@ function App() {
 
   useEffect(() => {
     setTargets(data);
+    // if(targets !== undefined)
+    // localStorage.setItem('object', JSON.stringify(targets))
   }, []);
 
   return (
@@ -102,15 +104,6 @@ function App() {
                 deleteTarget={deleteTarget}
                 editTarget={editTarget}
               />
-            )}
-          />
-          <Route
-            path='/create-target'
-            exact
-            component={() => (
-              <Fragment>
-                <NewTarget addNewTarget={addNewTarget} targets={targets} />
-              </Fragment>
             )}
           />
         </Switch>
