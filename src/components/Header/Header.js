@@ -1,12 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faGlobe,
-  faBars,
-  faTimesCircle,
-  faTimes,
-} from "@fortawesome/free-solid-svg-icons";
+import { faGlobe, faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 import "./header.css";
 
 const Header = (props) => {

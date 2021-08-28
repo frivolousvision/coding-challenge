@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import { Redirect, Link } from "react-router-dom";
 import "./target-info.css";
 import { classNameSelector } from "../../util/classNameSelector";
