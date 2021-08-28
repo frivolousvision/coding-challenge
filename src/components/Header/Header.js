@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faGlobe,
@@ -9,34 +10,60 @@ import {
 import "./header.css";
 
 const Header = (props) => {
-  // const approved = "Approved";
-  // const researching = "Researching";
+  const [showMenu, setShowMenu] = useState(false);
   const scrollTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const showMenu = () => {
-    document.getElementsByClassName("mobile-menu")[0].style.width = "70%";
-    document.getElementsByClassName("mobile-menu")[0].style.display = "flex";
-    document.getElementsByClassName("bars")[0].style.display = "none";
+  const toggleMenu = () => {
+    if (!showMenu) {
+      document.getElementsByClassName("mobile-menu-contents")[0].style.display =
+        "contents";
+      document.getElementsByClassName("mobile-menu")[0].style.width = "20rem";
+      document.getElementsByClassName("bars")[0].style.transform =
+        "rotate(360deg)";
+      document.getElementsByClassName("bars")[0].style.right = "-20px";
+      setShowMenu(true);
+    }
+    if (showMenu) {
+      document.getElementsByClassName("mobile-menu")[0].style.width = "0";
+      document.getElementsByClassName("mobile-menu-contents")[0].style.display =
+        "none";
+      document.getElementsByClassName("bars")[0].style.display = "block";
+      document.getElementsByClassName("bars")[0].style.transform =
+        "rotate(-360deg)";
+      setShowMenu(false);
+    }
   };
-  const closeMenu = () => {
-    document.getElementsByClassName("mobile-menu")[0].style.width = "0";
-    document.getElementsByClassName("mobile-menu")[0].style.display = "none";
-    document.getElementsByClassName("bars")[0].style.display = "block";
+  const handleHomeClick = () => {
+    scrollTop();
+    if (showMenu) {
+      document.getElementsByClassName("mobile-menu")[0].style.width = "0";
+      document.getElementsByClassName("mobile-menu-contents")[0].style.display =
+        "none";
+      document.getElementsByClassName("bars")[0].style.display = "block";
+      document.getElementsByClassName("bars")[0].style.transform =
+        "rotate(-360deg)";
+      setShowMenu(false);
+    }
   };
+  const handleNewTargetLink = () => {
+    toggleMenu();
+    window.scrollTo(0, document.body.scrollHeight);
+  };
+
   return (
     <nav className='header'>
       <div className='header-links'>
         <Link to='/'>
           <FontAwesomeIcon
-            onClick={() => scrollTop()}
+            onClick={() => handleHomeClick()}
             className='icon-mobile'
             icon={faGlobe}
           />
         </Link>
         <Link to='/'>
-          <h2 onClick={() => scrollTop()} className='header-desktop'>
+          <h2 onClick={() => handleHomeClick()} className='icon-desktop'>
             Global Acquisitions
           </h2>
         </Link>
@@ -44,27 +71,37 @@ const Header = (props) => {
         <FontAwesomeIcon
           icon={faBars}
           className='bars'
-          onClick={() => showMenu()}
+          onClick={() => toggleMenu()}
         />
       </div>
       <div className='mobile-menu'>
-        <FontAwesomeIcon
-          icon={faTimes}
-          className='close-button'
-          onClick={() => closeMenu()}
-        />
-        <div className='ul-container'>
-          <ul>
-            {props.targets
-              ? props.targets.map((target) => {
-                  return (
-                    <Link to={`/${target.id}`}>
-                      <li className='menu-targets'>{target.name}</li>
-                    </Link>
-                  );
-                })
-              : null}
-          </ul>
+        <div className='mobile-menu-contents'>
+          <div className='ul-container'>
+            <ul>
+              {props.targets
+                ? props.targets.map((target) => {
+                    return (
+                      <Link to={`/${target.id}`} onClick={() => toggleMenu()}>
+                        <li className='menu-targets'>{target.name}</li>
+                      </Link>
+                    );
+                  })
+                : null}
+              <li
+                onClick={() => handleNewTargetLink()}
+                className='menu-targets'
+              >
+                Create New Target
+              </li>
+            </ul>
+          </div>
+          <div className='close-menu-container'>
+            <FontAwesomeIcon
+              icon={faTimes}
+              className='close-button'
+              onClick={() => toggleMenu()}
+            />
+          </div>
         </div>
       </div>
     </nav>
