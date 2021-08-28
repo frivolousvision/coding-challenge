@@ -1,19 +1,6 @@
 export const data = [
   {
     id: "1",
-    name: "AirGarage",
-    img_url:
-      "https://photos.angel.co/startups/i/4462956-636feb35abe46aa64c5af32d29eb9e3e-medium_jpg.jpg?buster=1501776720",
-    info: "AirGarage is working to repurpose the 30% of the American city currently occupied by parking. As a full-stack parking operator, we automate the operation of parking lots and enable churches and businesses to rent out parking to drivers on demand. Our mission is to restore vibrancy in cities and transform these single-use spaces into multi-use hubs to support a future filled with cloud kitchens, micro-mobility, autonomous vehicles, on-demand fulfillment, and more.",
-    status: "Researching",
-    contact: "airgarage@email.com",
-    location: ["San Francisco"],
-    revenue: "1.6M",
-    funding: "2M",
-    size: "11-50",
-  },
-  {
-    id: "2",
     name: "Airtable",
     img_url:
       "https://photos.angel.co/startups/i/623000-9d210a39051abc7accec1dc686888dcc-medium_jpg.jpg?buster=1589312000",
@@ -25,6 +12,20 @@ export const data = [
     funding: "170.6M",
     size: "201-500",
   },
+  {
+    id: "2",
+    name: "AirGarage",
+    img_url:
+      "https://photos.angel.co/startups/i/4462956-636feb35abe46aa64c5af32d29eb9e3e-medium_jpg.jpg?buster=1501776720",
+    info: "AirGarage is working to repurpose the 30% of the American city currently occupied by parking. As a full-stack parking operator, we automate the operation of parking lots and enable churches and businesses to rent out parking to drivers on demand. Our mission is to restore vibrancy in cities and transform these single-use spaces into multi-use hubs to support a future filled with cloud kitchens, micro-mobility, autonomous vehicles, on-demand fulfillment, and more.",
+    status: "Researching",
+    contact: "airgarage@email.com",
+    location: ["San Francisco"],
+    revenue: "1.6M",
+    funding: "2M",
+    size: "11-50",
+  },
+
   {
     id: "3",
     name: "Bloomscape",

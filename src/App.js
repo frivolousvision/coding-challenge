@@ -64,9 +64,9 @@ function App() {
       return;
     }
   };
-  const filterTargets = (filter) => {
-    setTargets(data.filter((t) => t.status === filter));
-  };
+  // const filterTargets = (filter) => {
+  // setTargets(data.filter((t) => t.status === filter));
+  // };
 
   useEffect(() => {
     setTargets(data);
@@ -77,7 +77,7 @@ function App() {
   return (
     <div className='App'>
       <Router>
-        <Header filterTargets={filterTargets} />
+        <Header targets={targets} />
         <Switch>
           <Route
             path='/'

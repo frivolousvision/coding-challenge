@@ -1,4 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap");
+* {
+  scroll-behavior: smooth;
+}
 .App {
   text-align: center;
   width: 100%;
@@ -10,7 +13,9 @@ h2 {
   height: 40vmin;
   pointer-events: none;
 }
-
+button {
+  cursor: pointer;
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
