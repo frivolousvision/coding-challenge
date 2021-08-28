@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Redirect } from "react-router";
+import { Redirect, Link } from "react-router-dom";
 import "./target-info.css";
 import { classNameSelector } from "../../util/classNameSelector";
 
@@ -22,6 +22,22 @@ const TargetInfo = ({ targets, match, deleteTarget, editTarget }, props) => {
 
   return (
     <div className='target-info'>
+      <div
+        className={
+          match.params.id !== "1" ? "next-previous-buttons" : "next-button-only"
+        }
+      >
+        {match.params.id > 1 ? (
+          <Link to={`/${(+target.id - 1).toString()}`}>
+            <button>Previous Target</button>
+          </Link>
+        ) : null}
+        {match.params.id < targets.length ? (
+          <Link to={`/${(+target.id + 1).toString()}`}>
+            <button>Next Target</button>
+          </Link>
+        ) : null}
+      </div>
       <div className={!editCompanyInfo ? "target-info" : "hide-target-info"}>
         {target ? (
           <div>
