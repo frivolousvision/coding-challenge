@@ -40,3 +40,8 @@ button:hover {
     width: 78%;
   }
 }
+@media (hover: none) {
+  button:hover {
+    background-color: white;
+  }
+}
