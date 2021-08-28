@@ -103,4 +103,7 @@ a:link {
   .icon-desktop {
     display: none;
   }
+  .menu-targets {
+    margin-bottom: 1rem;
+  }
 }
