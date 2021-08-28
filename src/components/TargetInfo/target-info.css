@@ -59,12 +59,22 @@
   opacity: 0.8;
   font-size: 0.5rem;
 }
+.next-previous-buttons button:hover {
+  background-color: rgb(218, 218, 218);
+}
+.next-button-only button:hover {
+  background-color: rgb(218, 218, 218);
+}
 .edit-cancel-button {
   cursor: pointer;
 }
-.delete-button {
+.delete-target-button {
   cursor: pointer;
 }
+.delete-target-button:hover {
+  background-color: rgb(206, 36, 36);
+}
+
 @media only screen and (max-width: 600px) {
   .target-info {
     margin-top: 4rem;
@@ -86,5 +96,10 @@
 @media only screen and (min-width: 800px) {
   .target-info {
     width: 60%;
+  }
+}
+@media (hover: none) {
+  button:hover {
+    background-color: white;
   }
 }

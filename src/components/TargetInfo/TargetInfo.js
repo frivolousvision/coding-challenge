@@ -254,8 +254,9 @@ const TargetInfo = ({ targets, match, deleteTarget, editTarget }, props) => {
             setRedirect(true);
             setTimeout(() => deleteTarget(target.id), 500);
           }}
+          className='delete-target-button'
         >
-          Delete this target
+          Delete Target
         </button>
       </div>
     </div>

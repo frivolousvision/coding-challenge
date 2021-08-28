@@ -91,7 +91,7 @@ const NewTarget = (props) => {
             <option value='Declined'>Declined</option>
           </select>
         </div>
-        <button>Submit</button>
+        <button className='submit-button'>Submit</button>
       </form>
     </div>
   );

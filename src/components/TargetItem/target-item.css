@@ -25,7 +25,7 @@ p {
   color: black;
 }
 .target-heading:hover {
-  opacity: 0.9;
+  opacity: 0.8;
 }
 .green {
   background-color: rgba(0, 128, 0, 0.7);
@@ -50,6 +50,9 @@ p {
   cursor: pointer;
   margin-top: 1rem;
   margin-bottom: 0.5rem;
+}
+.learn-more-container:hover {
+  background-color: rgb(218, 218, 218);
 }
 .learn-more-container p {
   color: black;
@@ -146,7 +149,7 @@ label {
   border: 1px solid black;
 }
 .delete-button:hover {
-  background-color: rgba(235, 22, 22, 0.747);
+  background-color: rgb(206, 36, 36);
 }
 .edit-cancel-button {
   border-radius: 3px;
@@ -207,5 +210,10 @@ label {
   }
   .show-form textarea {
     max-width: 21.5rem;
+  }
+}
+@media (hover: none) {
+  button:hover {
+    background-color: white;
   }
 }
