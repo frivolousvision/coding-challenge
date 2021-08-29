@@ -57,7 +57,7 @@ const Header = (props) => {
         </Link>
         <Link to='/'>
           <h2 onClick={() => handleHomeClick()} className='icon-desktop'>
-            Global Acquisitions
+            Target Acquisitions
           </h2>
         </Link>
 
@@ -71,15 +71,55 @@ const Header = (props) => {
         <div className='mobile-menu-contents' id='menu-contents'>
           <div className='ul-container'>
             <ul>
+              <h2>Researching</h2>
               {props.targets
                 ? props.targets.map((target) => {
-                    return (
-                      <Link to={`/${target.id}`} onClick={() => toggleMenu()}>
-                        <li className='menu-targets'>{target.name}</li>
-                      </Link>
-                    );
+                    if (target.status === "Researching") {
+                      return (
+                        <Link to={`/${target.id}`} onClick={() => toggleMenu()}>
+                          <li className='menu-targets'>{target.name}</li>
+                        </Link>
+                      );
+                    }
                   })
                 : null}
+              <h2>Approved</h2>
+              {props.targets
+                ? props.targets.map((target) => {
+                    if (target.status === "Approved") {
+                      return (
+                        <Link to={`/${target.id}`} onClick={() => toggleMenu()}>
+                          <li className='menu-targets'>{target.name}</li>
+                        </Link>
+                      );
+                    }
+                  })
+                : null}
+              <h2>Pending Approval</h2>
+              {props.targets
+                ? props.targets.map((target) => {
+                    if (target.status === "Pending Approval") {
+                      return (
+                        <Link to={`/${target.id}`} onClick={() => toggleMenu()}>
+                          <li className='menu-targets'>{target.name}</li>
+                        </Link>
+                      );
+                    }
+                  })
+                : null}
+              <h2>Declined</h2>
+              {props.targets
+                ? props.targets.map((target) => {
+                    if (target.status === "Declined") {
+                      return (
+                        <Link to={`/${target.id}`} onClick={() => toggleMenu()}>
+                          <li className='menu-targets'>{target.name}</li>
+                        </Link>
+                      );
+                    }
+                  })
+                : null}
+              <h2>New</h2>
               <Link to='/'>
                 <li
                   onClick={() => handleNewTargetLink()}

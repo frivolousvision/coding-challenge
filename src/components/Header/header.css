@@ -56,6 +56,10 @@
   transition: 400ms;
   box-shadow: -1px 1px 1px rgb(94, 94, 94);
 }
+.mobile-menu-contents h2 {
+  margin-left: 0rem;
+  text-align: left;
+}
 #menu-contents {
   display: none;
 }
@@ -77,15 +81,18 @@ ul {
 }
 li {
   font-size: 1.5rem;
+  margin-left: 2rem;
 }
 .menu-targets {
   z-index: 30;
+  text-align: left;
   margin-right: 0 auto;
   margin-bottom: 3rem;
   cursor: pointer;
   color: white;
   transition: 500ms;
 }
+
 .menu-targets:hover {
   color: black;
 }
