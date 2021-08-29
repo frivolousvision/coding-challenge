@@ -32,28 +32,6 @@ const Header = (props) => {
       setShowMenu(false);
     }
   };
-  const toggleCategoriesTwo = (index) => {
-    displayCategory.map((i) => {
-      if (i.id === index) {
-        if (!displayCategory.show) {
-          console.log(i.id);
-          document.getElementsByClassName("menu-category")[
-            index
-          ].style.display = "contents";
-          setDisplayCategory({ ...displayCategory, show: true });
-        }
-        if (displayCategory.show) {
-          console.log("showfalse");
-          document.getElementsByClassName("menu-category")[
-            index
-          ].style.display = "none";
-          setDisplayCategory({ ...displayCategory, show: false });
-          console.log(displayCategory);
-        }
-      }
-      console.log(displayCategory);
-    });
-  };
 
   const toggleCategories = (id) => {
     let updated;
@@ -63,16 +41,19 @@ const Header = (props) => {
         ...theOne,
         show: true,
       };
-      document.getElementsByClassName("menu-category")[id].style.display =
-        "contents";
+      document.getElementsByClassName("menu-category")[id].style.height =
+        "auto";
+      document.getElementsByClassName("menu-category")[id].style.transform =
+        "scaleY(1)";
     }
     if (theOne.show === true) {
       updated = {
         ...theOne,
         show: false,
       };
-      document.getElementsByClassName("menu-category")[id].style.display =
-        "none";
+      document.getElementsByClassName("menu-category")[id].style.transform =
+        "scaleY(0)";
+      document.getElementsByClassName("menu-category")[id].style.height = "0";
     }
     const updatedShow = displayCategory.map((t) =>
       t.id === updated.id ? updated : t

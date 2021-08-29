@@ -67,7 +67,9 @@
 }
 
 .menu-category {
-  display: none;
+  height: 0;
+  transform: scaleY(0);
+  transition: 400ms;
 }
 #menu-contents {
   display: none;
