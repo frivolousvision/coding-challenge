@@ -1,4 +1,4 @@
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGlobe, faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
@@ -6,7 +6,6 @@ import "./header.css";
 
 const Header = (props) => {
   const [showMenu, setShowMenu] = useState(false);
-  const [redirect, setRedirect] = useState(false);
   const scrollTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -41,7 +40,6 @@ const Header = (props) => {
   };
   const handleNewTargetLink = () => {
     toggleMenu();
-    setRedirect(true);
     setTimeout(() => {
       window.scrollTo(0, document.body.scrollHeight);
     }, 100);
