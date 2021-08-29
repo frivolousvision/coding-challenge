@@ -55,6 +55,7 @@
   width: 0rem;
   transition: 400ms;
   box-shadow: -1px 1px 1px rgb(94, 94, 94);
+  overflow-y: scroll;
 }
 .mobile-menu-contents h2 {
   margin-left: 0rem;
