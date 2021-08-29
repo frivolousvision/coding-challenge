@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGlobe, faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
@@ -6,6 +6,7 @@ import "./header.css";
 
 const Header = (props) => {
   const [showMenu, setShowMenu] = useState(false);
+  const [redirect, setRedirect] = useState(false);
   const scrollTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -40,7 +41,10 @@ const Header = (props) => {
   };
   const handleNewTargetLink = () => {
     toggleMenu();
-    window.scrollTo(0, document.body.scrollHeight);
+    setRedirect(true);
+    setTimeout(() => {
+      window.scrollTo(0, document.body.scrollHeight);
+    }, 100);
   };
 
   return (
@@ -78,12 +82,14 @@ const Header = (props) => {
                     );
                   })
                 : null}
-              <li
-                onClick={() => handleNewTargetLink()}
-                className='menu-targets'
-              >
-                Create New Target
-              </li>
+              <Link to='/'>
+                <li
+                  onClick={() => handleNewTargetLink()}
+                  className='menu-targets'
+                >
+                  Create New Target
+                </li>
+              </Link>
             </ul>
           </div>
           <div className='close-menu-container'>
