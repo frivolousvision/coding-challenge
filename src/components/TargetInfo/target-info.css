@@ -73,6 +73,13 @@
 .next-button-only button:hover {
   background-color: rgb(218, 218, 218);
 }
+.edit-delete-button {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  margin-bottom: 0rem;
+  width: 70%;
+}
 .edit-cancel-button {
   cursor: pointer;
 }

@@ -238,7 +238,7 @@ const TargetInfo = ({ targets, match, deleteTarget, editTarget }, props) => {
           </form>
         </div>
       </div>
-      <div className='edit-delete-button-container'>
+      <div className='edit-delete-button'>
         {!editCompanyInfo ? (
           <button onClick={toggleForm} className='edit-cancel-button'>
             Edit
