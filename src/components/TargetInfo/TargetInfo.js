@@ -84,10 +84,6 @@ const TargetInfo = ({ targets, match, deleteTarget, editTarget }, props) => {
             )}
             <p className='summary'>{target.info}</p>
             <div className='target-details'>
-              <div className='details-content'>
-                <strong>Status:</strong>
-                <p>{target.status}</p>
-              </div>
               <div className='details-content contact'>
                 <strong>Contact Info:</strong>
                 <a href={`mailto:${target.contact}`}>{target.contact}</a>
@@ -122,6 +118,12 @@ const TargetInfo = ({ targets, match, deleteTarget, editTarget }, props) => {
               <div className='details-content'>
                 <strong>Company size:</strong>
                 <p>{target.size} people</p>
+              </div>
+              <div className='details-content'>
+                <strong>Status:</strong>
+                <p className={classNameSelector(target.status)}>
+                  {target.status}
+                </p>
               </div>
             </div>
           </div>
