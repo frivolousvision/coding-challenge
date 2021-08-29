@@ -81,6 +81,7 @@ const Header = (props) => {
                         </Link>
                       );
                     }
+                    return;
                   })
                 : null}
               <h2>Approved</h2>
@@ -93,6 +94,7 @@ const Header = (props) => {
                         </Link>
                       );
                     }
+                    return;
                   })
                 : null}
               <h2>Pending Approval</h2>
@@ -105,6 +107,7 @@ const Header = (props) => {
                         </Link>
                       );
                     }
+                    return;
                   })
                 : null}
               <h2>Declined</h2>
@@ -117,6 +120,7 @@ const Header = (props) => {
                         </Link>
                       );
                     }
+                    return;
                   })
                 : null}
               <h2>New</h2>
