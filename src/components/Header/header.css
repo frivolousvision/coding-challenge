@@ -130,15 +130,13 @@ a:link {
   .menu-targets {
     margin-bottom: 2rem;
   }
-}
-@media (hover: none) {
-  .mobile-menu-contents h2 {
+  .mobile-menu-contents h2:hover {
     color: white;
   }
-  .close-button {
+  .close-button:hover {
     color: white;
   }
-  .menu-targets {
+  .menu-targets:hover {
     color: white;
   }
 }

@@ -39,9 +39,7 @@ button {
   .new-target-form-container {
     width: 78%;
   }
-}
-@media (hover: none) {
-  .submit-button {
+  .submit-button:hover {
     background-color: white;
   }
 }

@@ -107,23 +107,21 @@
     margin-top: 0rem;
     margin-bottom: 3rem;
   }
+  button:hover {
+    background-color: white;
+  }
+  .next-previous-buttons button:hover {
+    background-color: white;
+  }
+  .next-button-only button:hover {
+    background-color: white;
+  }
+  .delete-target-button:hover {
+    background-color: white;
+  }
 }
 @media only screen and (min-width: 800px) {
   .target-info {
     width: 60%;
-  }
-}
-@media (hover: none) {
-  button {
-    background-color: white;
-  }
-  .next-previous-buttons button {
-    background-color: white;
-  }
-  .next-button-only button {
-    background-color: white;
-  }
-  .delete-target-button {
-    background-color: white;
   }
 }

@@ -203,6 +203,24 @@ label {
   .show-form textarea {
     max-width: 18rem;
   }
+  button:hover {
+    background-color: white;
+  }
+  .target-heading:hover {
+    opacity: 1;
+  }
+  .learn-more-container:hover {
+    background-color: white;
+  }
+  .show-form button:hover {
+    background-color: white;
+  }
+  .delete-button:hover {
+    background-color: white;
+  }
+  .edit-cancel-button:hover {
+    background-color: white;
+  }
 }
 @media only screen and (min-width: 600px) {
   .show-form {
@@ -213,25 +231,5 @@ label {
   }
   .show-form textarea {
     max-width: 21.5rem;
-  }
-}
-@media (hover: none) {
-  button {
-    background-color: white;
-  }
-  .target-heading {
-    opacity: 1;
-  }
-  .learn-more-container {
-    background-color: white;
-  }
-  .show-form button {
-    background-color: white;
-  }
-  .delete-button {
-    background-color: white;
-  }
-  .edit-cancel-button {
-    background-color: white;
   }
 }
