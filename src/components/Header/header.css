@@ -58,12 +58,14 @@
   overflow-y: scroll;
 }
 .mobile-menu-contents h2 {
+  color: white;
   margin-left: 0rem;
   text-align: left;
   cursor: pointer;
+  transition: 500ms;
 }
 .mobile-menu-contents h2:hover {
-  opacity: 0.5;
+  color: black;
 }
 
 .menu-category {
@@ -92,7 +94,11 @@ ul {
 }
 li {
   font-size: 1.5rem;
-  margin-left: 2rem;
+}
+.awesome {
+  font-size: 1rem;
+  margin-left: 1rem;
+  margin-bottom: 0.1rem;
 }
 .menu-targets {
   z-index: 30;
@@ -114,7 +120,9 @@ a,
 a:link {
   text-decoration: none;
 }
-
+.new-target {
+  margin-top: 2rem;
+}
 @media only screen and (max-width: 600px) {
   .icon-desktop {
     display: none;

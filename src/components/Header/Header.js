@@ -1,7 +1,13 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGlobe, faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
+import {
+  faGlobe,
+  faBars,
+  faTimes,
+  faMinus,
+  faPlus,
+} from "@fortawesome/free-solid-svg-icons";
 import "./header.css";
 
 const Header = (props) => {
@@ -53,14 +59,16 @@ const Header = (props) => {
       };
       document.getElementsByClassName("menu-category")[id].style.transform =
         "scaleY(0)";
-      document.getElementsByClassName("menu-category")[id].style.height = "0";
+      setTimeout(() => {
+        document.getElementsByClassName("menu-category")[id].style.height = "0";
+      }, 300);
     }
     const updatedShow = displayCategory.map((t) =>
       t.id === updated.id ? updated : t
     );
     setDisplayCategory(updatedShow);
-    console.log(displayCategory);
   };
+
   const handleHomeClick = () => {
     scrollTop();
     if (showMenu) {
@@ -106,7 +114,14 @@ const Header = (props) => {
         <div className='mobile-menu-contents' id='menu-contents'>
           <div className='ul-container'>
             <ul>
-              <h2 onClick={() => toggleCategories(0)}>Researching</h2>
+              <h2 onClick={() => toggleCategories(0)}>
+                Researching{" "}
+                {displayCategory[0].show ? (
+                  <FontAwesomeIcon icon={faMinus} className='awesome' />
+                ) : (
+                  <FontAwesomeIcon icon={faPlus} className='awesome' />
+                )}
+              </h2>
               <div className='menu-category'>
                 {props.targets
                   ? props.targets.map((target) => {
@@ -124,7 +139,14 @@ const Header = (props) => {
                     })
                   : null}
               </div>
-              <h2 onClick={() => toggleCategories(1)}>Approved</h2>
+              <h2 onClick={() => toggleCategories(1)}>
+                Approved{" "}
+                {displayCategory[1].show ? (
+                  <FontAwesomeIcon icon={faMinus} className='awesome' />
+                ) : (
+                  <FontAwesomeIcon icon={faPlus} className='awesome' />
+                )}
+              </h2>
               <div className='menu-category'>
                 {props.targets
                   ? props.targets.map((target) => {
@@ -142,7 +164,14 @@ const Header = (props) => {
                     })
                   : null}
               </div>
-              <h2 onClick={() => toggleCategories(2)}>Pending Approval</h2>
+              <h2 onClick={() => toggleCategories(2)}>
+                Pending Approval{" "}
+                {displayCategory[2].show ? (
+                  <FontAwesomeIcon icon={faMinus} className='awesome' />
+                ) : (
+                  <FontAwesomeIcon icon={faPlus} className='awesome' />
+                )}
+              </h2>
               <div className='menu-category'>
                 {props.targets
                   ? props.targets.map((target) => {
@@ -160,7 +189,14 @@ const Header = (props) => {
                     })
                   : null}
               </div>
-              <h2 onClick={() => toggleCategories(3)}>Declined</h2>
+              <h2 onClick={() => toggleCategories(3)}>
+                Declined{" "}
+                {displayCategory[3].show ? (
+                  <FontAwesomeIcon icon={faMinus} className='awesome' />
+                ) : (
+                  <FontAwesomeIcon icon={faPlus} className='awesome' />
+                )}
+              </h2>
               <div className='menu-category'>
                 {props.targets
                   ? props.targets.map((target) => {
@@ -181,7 +217,7 @@ const Header = (props) => {
               <Link to='/'>
                 <li
                   onClick={() => handleNewTargetLink()}
-                  className='menu-targets'
+                  className='menu-targets new-target'
                 >
                   Create New Target
                 </li>
