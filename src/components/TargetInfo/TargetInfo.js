@@ -88,9 +88,9 @@ const TargetInfo = ({ targets, match, deleteTarget, editTarget }, props) => {
                 <strong>Status:</strong>
                 <p>{target.status}</p>
               </div>
-              <div className='details-content'>
+              <div className='details-content contact'>
                 <strong>Contact Info:</strong>
-                <p>{target.contact}</p>
+                <a href={`mailto:${target.contact}`}>{target.contact}</a>
               </div>
               <div className='details-content'>
                 {target.location && target.location.length > 1 ? (

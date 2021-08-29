@@ -40,8 +40,11 @@ p {
   background-color: rgba(255, 0, 0, 0.7);
 }
 .contact-header {
-  margin-bottom: -1rem;
+  margin-bottom: 0rem;
   margin-top: 0rem;
+}
+.contact-container a {
+  color: black;
 }
 .learn-more-container {
   border: 1px solid black;
@@ -188,8 +191,7 @@ label {
     margin: 0 auto;
   }
   .contact-header {
-    margin-bottom: -1rem;
-    margin-top: 0rem;
+    margin-bottom: 1rem;
   }
   .edit-delete-button-container {
     width: 95%;

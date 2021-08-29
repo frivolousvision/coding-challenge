@@ -50,8 +50,15 @@
 .details-content {
   margin: 1rem 2rem;
 }
+.contact {
+  display: flex;
+  flex-direction: column;
+}
 .details-content p {
   margin-top: 0.5rem;
+}
+.details-content a {
+  color: black;
 }
 .hide-form {
   display: none;

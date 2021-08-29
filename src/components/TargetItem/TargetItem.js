@@ -26,8 +26,10 @@ const TargetItem = (props) => {
         <div className='target-information'>
           <p>{props.target.info}</p>
         </div>
-        <h4 className='contact-header'>Contact:</h4>
-        <p>{props.target.contact}</p>
+        <div className='contact-container'>
+          <h4 className='contact-header'>Contact:</h4>
+          <a href={`mailto:${props.target.contact}`}>{props.target.contact}</a>
+        </div>
         <Link to={`/${props.target.id}`}>
           <div className='learn-more-container'>
             <p>Learn more about {props.target.name}</p>
