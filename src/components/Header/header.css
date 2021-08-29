@@ -60,6 +60,14 @@
 .mobile-menu-contents h2 {
   margin-left: 0rem;
   text-align: left;
+  cursor: pointer;
+}
+.mobile-menu-contents h2:hover {
+  opacity: 0.5;
+}
+
+.menu-category {
+  display: none;
 }
 #menu-contents {
   display: none;
