@@ -19,6 +19,7 @@ p {
 }
 .target-heading {
   margin-top: 1rem;
+  margin-bottom: -2rem;
 }
 .target-heading a {
   text-decoration: none;
