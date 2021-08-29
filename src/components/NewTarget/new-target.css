@@ -41,7 +41,7 @@ button {
   }
 }
 @media (hover: none) {
-  button:hover {
+  .submit-button {
     background-color: white;
   }
 }

@@ -114,7 +114,16 @@
   }
 }
 @media (hover: none) {
-  button:hover {
+  button {
+    background-color: white;
+  }
+  .next-previous-buttons button {
+    background-color: white;
+  }
+  .next-button-only button {
+    background-color: white;
+  }
+  .delete-target-button {
     background-color: white;
   }
 }

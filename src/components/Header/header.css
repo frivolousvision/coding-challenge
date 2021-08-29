@@ -131,3 +131,14 @@ a:link {
     margin-bottom: 2rem;
   }
 }
+@media (hover: none) {
+  .mobile-menu-contents h2 {
+    color: white;
+  }
+  .close-button {
+    color: white;
+  }
+  .menu-targets {
+    color: white;
+  }
+}

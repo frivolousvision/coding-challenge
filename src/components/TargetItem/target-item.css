@@ -216,7 +216,22 @@ label {
   }
 }
 @media (hover: none) {
-  button:hover {
+  button {
+    background-color: white;
+  }
+  .target-heading {
+    opacity: 1;
+  }
+  .learn-more-container {
+    background-color: white;
+  }
+  .show-form button {
+    background-color: white;
+  }
+  .delete-button {
+    background-color: white;
+  }
+  .edit-cancel-button {
     background-color: white;
   }
 }
