@@ -11,15 +11,26 @@ import {
 import "./header.css";
 
 const Header = (props) => {
-  const [showMenu, setShowMenu] = useState(false);
-  const [displayCategory, setDisplayCategory] = useState([
+  const defaultCategoryState = [
     { id: 0, show: false },
     { id: 1, show: false },
     { id: 2, show: false },
     { id: 3, show: false },
-  ]);
+  ];
+
+  const [showMenu, setShowMenu] = useState(false);
+  const [displayCategory, setDisplayCategory] = useState(defaultCategoryState);
+
   const scrollTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const collapseCategories = () => {
+    const menuArrOne = document.getElementsByClassName("menu-category");
+    for (let i = 0; i < menuArrOne.length; i++) {
+      menuArrOne[i].style.transform = "scaleY(0)";
+      menuArrOne[i].style.height = "0";
+    }
   };
 
   const toggleMenu = () => {
@@ -36,6 +47,8 @@ const Header = (props) => {
       document.getElementsByClassName("bars")[0].style.transform =
         "rotate(-360deg)";
       setShowMenu(false);
+      setDisplayCategory(defaultCategoryState);
+      collapseCategories();
     }
   };
 
@@ -80,9 +93,13 @@ const Header = (props) => {
         "rotate(-360deg)";
       setShowMenu(false);
     }
+    setDisplayCategory(defaultCategoryState);
+    collapseCategories();
   };
+
   const handleNewTargetLink = () => {
     toggleMenu();
+    collapseCategories();
     setTimeout(() => {
       window.scrollTo(0, document.body.scrollHeight);
     }, 100);
