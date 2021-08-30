@@ -127,6 +127,9 @@ a:link {
   .icon-desktop {
     display: none;
   }
+  .header-links {
+    width: 92%;
+  }
   .menu-targets {
     margin-bottom: 2rem;
   }
