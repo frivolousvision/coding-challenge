@@ -41,4 +41,6 @@ In this application, a view of the list of targets are presented in the style of
 
 Clicking on the target's image, name, or "Learn more about..." will navigate you to that target's main page, where you will see all of the information available about the target with the functionalioty to can make edits to the information, change the current status, or delete the target. In this view, there are "Previous Target" and "Next Target" buttons that allow you quickly cycle between the targets in the feed. 
 
-In the header of the application, clicking on the 3 bars opens a menu of categories to view the targets by status, navigate to that target's information page, or quickly jump to the create new target form.  
+In the header of the application, clicking on the 3 bars opens a menu of categories to view the targets by status, navigate to that target's information page, or quickly jump to the create new target form. 
+
+The mock information was provided from a JSON object in /src/lib/data.js 
