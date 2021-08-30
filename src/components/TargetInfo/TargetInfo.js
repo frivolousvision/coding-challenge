@@ -68,7 +68,7 @@ const TargetInfo = ({ targets, match, deleteTarget, editTarget }, props) => {
       <div className={!editCompanyInfo ? "target-info" : "hide-target-info"}>
         {target ? (
           <div>
-            {target ? (
+            {target.img_url ? (
               <img
                 src={target.img_url}
                 alt='Company Logo'
@@ -77,7 +77,7 @@ const TargetInfo = ({ targets, match, deleteTarget, editTarget }, props) => {
             ) : (
               <p>No image available</p>
             )}
-            {target ? (
+            {target.name ? (
               <h2 className='name'>{target.name}</h2>
             ) : (
               <p>No information available</p>
@@ -86,7 +86,11 @@ const TargetInfo = ({ targets, match, deleteTarget, editTarget }, props) => {
             <div className='target-details'>
               <div className='details-content contact'>
                 <strong>Contact Info:</strong>
-                <a href={`mailto:${target.contact}`}>{target.contact}</a>
+                {target.contact ? (
+                  <a href={`mailto:${target.contact}`}>{target.contact}</a>
+                ) : (
+                  <p>No information available</p>
+                )}
               </div>
               <div className='details-content'>
                 {target.location && target.location.length > 1 ? (
@@ -95,7 +99,9 @@ const TargetInfo = ({ targets, match, deleteTarget, editTarget }, props) => {
                   <strong>Location:</strong>
                 )}
 
-                {Array.isArray(target.location) ? (
+                {!target.location ? (
+                  <p>No information available</p>
+                ) : Array.isArray(target.location) ? (
                   target.location.map((city, i) => {
                     return <p key={i}>{city}</p>;
                   })
@@ -105,7 +111,11 @@ const TargetInfo = ({ targets, match, deleteTarget, editTarget }, props) => {
               </div>
               <div className='details-content'>
                 <strong>Yearly Revenue:</strong>
-                <p>${target.revenue}</p>
+                {target.revenue ? (
+                  <p>${target.revenue}</p>
+                ) : (
+                  <p>No information available</p>
+                )}
               </div>
               <div className='details-content'>
                 <strong>Total Funding:</strong>
@@ -117,13 +127,21 @@ const TargetInfo = ({ targets, match, deleteTarget, editTarget }, props) => {
               </div>
               <div className='details-content'>
                 <strong>Company size:</strong>
-                <p>{target.size} people</p>
+                {target.size ? (
+                  <p>{target.size} people</p>
+                ) : (
+                  <p>No information available</p>
+                )}
               </div>
               <div className='details-content'>
                 <strong>Status:</strong>
-                <p className={classNameSelector(target.status)}>
-                  {target.status}
-                </p>
+                {target.status ? (
+                  <p className={classNameSelector(target.status)}>
+                    {target.status}
+                  </p>
+                ) : (
+                  <p>No status provided</p>
+                )}
               </div>
             </div>
           </div>
@@ -136,10 +154,10 @@ const TargetInfo = ({ targets, match, deleteTarget, editTarget }, props) => {
       <div className={editCompanyInfo ? "show-form" : "hide-form"}>
         <div>
           <form
-            onSubmit={(e) => editTarget(e, target)}
+            onSubmit={target ? (e) => editTarget(e, target) : null}
             className='form-content'
           >
-            {target.img_url ? (
+            {target ? (
               <div className='image-container'>
                 <img
                   src={target.img_url}
