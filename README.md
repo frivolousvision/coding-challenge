@@ -13,13 +13,16 @@ In the terminal, cd to your desired project directory and run:
 
 To clone the repository.
 
+
 ### `cd coding-challenge`
 
 To navigate to the new directory.
 
+
 ### `npm install`
 
 To install the dependencies locally.
+
 
 ### `npm start`
 
