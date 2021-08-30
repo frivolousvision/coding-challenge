@@ -38,17 +38,17 @@ const Header = (props) => {
       document.getElementById("menu-contents").style.display = "contents";
       document.getElementsByClassName("mobile-menu")[0].style.width = "20rem";
       document.getElementsByClassName("bars")[0].style.transform =
-        "rotate(360deg)";
+        "rotate(-360deg)";
       setShowMenu(true);
     }
     if (showMenu) {
       document.getElementsByClassName("mobile-menu")[0].style.width = "0";
       document.getElementById("menu-contents").style.display = "none";
       document.getElementsByClassName("bars")[0].style.transform =
-        "rotate(-360deg)";
+        "rotate(360deg)";
+      collapseCategories();
       setShowMenu(false);
       setDisplayCategory(defaultCategoryState);
-      collapseCategories();
     }
   };
 
@@ -90,11 +90,11 @@ const Header = (props) => {
         "none";
       document.getElementsByClassName("bars")[0].style.display = "block";
       document.getElementsByClassName("bars")[0].style.transform =
-        "rotate(-360deg)";
+        "rotate(360deg)";
       setShowMenu(false);
     }
-    setDisplayCategory(defaultCategoryState);
     collapseCategories();
+    setDisplayCategory(defaultCategoryState);
   };
 
   const handleNewTargetLink = () => {
