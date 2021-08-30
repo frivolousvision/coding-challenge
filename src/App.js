@@ -27,6 +27,7 @@ function App() {
           if (t.id !== targetObject.id) return t;
           return {
             ...t,
+            img_url: targetObject.img_url,
             name: targetObject.name,
             info: targetObject.info,
             contact: targetObject.contact,

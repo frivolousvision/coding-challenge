@@ -167,6 +167,17 @@ const TargetInfo = ({ targets, match, deleteTarget, editTarget }, props) => {
                 ></img>
               </div>
             ) : null}
+            <label>Image URL</label>
+            <input
+              type='text'
+              autoFocus
+              placeholder='image url'
+              value={target ? target.img_url : "no information provided"}
+              onChange={(e) =>
+                setTarget({ ...target, img_url: e.target.value })
+              }
+              className='form-input'
+            ></input>
             <label>Name</label>
             <input
               type='text'
@@ -189,7 +200,7 @@ const TargetInfo = ({ targets, match, deleteTarget, editTarget }, props) => {
             <label>Contact</label>
             <input
               type='text'
-              placeholder='contact'
+              placeholder='email'
               value={target ? target.contact : "no information provided"}
               onChange={(e) =>
                 setTarget({ ...target, contact: e.target.value })
