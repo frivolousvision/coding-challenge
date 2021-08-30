@@ -4,18 +4,19 @@ import "./target-info.css";
 import { classNameSelector } from "../../util/classNameSelector";
 
 const TargetInfo = ({ targets, match, deleteTarget, editTarget }, props) => {
-  const [target, setTarget] = useState(targets);
+  const [target, setTarget] = useState(targets || "");
   const [redirect, setRedirect] = useState(false);
   const [editCompanyInfo, setEditCompanyInfo] = useState(false);
   const [nextId, setNextId] = useState(null);
   const [previousId, setPreviousId] = useState(null);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+
     const filterdTarget = targets.find((t) => {
       return match.params.id === t.id;
     });
     setTarget(filterdTarget);
-    window.scrollTo(0, 0);
 
     const getNextId = () => {
       if (targets) {
@@ -154,7 +155,7 @@ const TargetInfo = ({ targets, match, deleteTarget, editTarget }, props) => {
       <div className={editCompanyInfo ? "show-form" : "hide-form"}>
         <div>
           <form
-            onSubmit={target ? (e) => editTarget(e, target) : null}
+            onSubmit={(e) => editTarget(e, target)}
             className='form-content'
           >
             {target ? (
@@ -171,7 +172,7 @@ const TargetInfo = ({ targets, match, deleteTarget, editTarget }, props) => {
               type='text'
               autoFocus
               placeholder='name'
-              value={target.name}
+              value={target ? target.name : "no information provided"}
               onChange={(e) => setTarget({ ...target, name: e.target.value })}
               className='form-input'
             ></input>
@@ -181,7 +182,7 @@ const TargetInfo = ({ targets, match, deleteTarget, editTarget }, props) => {
               rows='5'
               cols='50'
               placeholder='information'
-              value={target.info}
+              value={target ? target.info : "no information provided"}
               onChange={(e) => setTarget({ ...target, info: e.target.value })}
               className='form-input'
             ></textarea>
@@ -189,7 +190,7 @@ const TargetInfo = ({ targets, match, deleteTarget, editTarget }, props) => {
             <input
               type='text'
               placeholder='contact'
-              value={target.contact}
+              value={target ? target.contact : "no information provided"}
               onChange={(e) =>
                 setTarget({ ...target, contact: e.target.value })
               }
@@ -202,7 +203,7 @@ const TargetInfo = ({ targets, match, deleteTarget, editTarget }, props) => {
             <input
               type='text'
               placeholder='location'
-              value={target.location}
+              value={target ? target.location : "no information provided"}
               onChange={(e) =>
                 setTarget({ ...target, location: e.target.value.split(",") })
               }
@@ -212,7 +213,7 @@ const TargetInfo = ({ targets, match, deleteTarget, editTarget }, props) => {
             <input
               type='text'
               placeholder='revenue'
-              value={target.revenue}
+              value={target ? target.revenue : "no information provided"}
               onChange={(e) =>
                 setTarget({ ...target, revenue: e.target.value })
               }
@@ -222,7 +223,7 @@ const TargetInfo = ({ targets, match, deleteTarget, editTarget }, props) => {
             <input
               type='text'
               placeholder='funding'
-              value={target.funding}
+              value={target ? target.funding : "no information provided"}
               onChange={(e) =>
                 setTarget({ ...target, funding: e.target.value })
               }
@@ -232,7 +233,7 @@ const TargetInfo = ({ targets, match, deleteTarget, editTarget }, props) => {
             <input
               type='text'
               placeholder='company size'
-              value={target.size}
+              value={target ? target.size : "no information provided"}
               onChange={(e) => setTarget({ ...target, size: e.target.value })}
               className='form-input'
             ></input>
@@ -240,11 +241,11 @@ const TargetInfo = ({ targets, match, deleteTarget, editTarget }, props) => {
               <label>Status</label>
               <select
                 required
-                value={target.status}
+                value={target ? target.status : "no information provided"}
                 onChange={(e) =>
                   setTarget({ ...target, status: e.target.value })
                 }
-                className={classNameSelector(target.status)}
+                className={classNameSelector(target ? target.status : null)}
               >
                 <option value='Researching'>Researching</option>
                 <option value='Pending Approval'>Pending Approval</option>

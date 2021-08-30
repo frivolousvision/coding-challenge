@@ -21,22 +21,26 @@ function App() {
 
   const editTarget = (e, targetObject) => {
     e.preventDefault();
-    setTargets(
-      targets.map((t) => {
-        if (t.id !== targetObject.id) return t;
-        return {
-          ...t,
-          name: targetObject.name,
-          info: targetObject.info,
-          contact: targetObject.contact,
-          status: targetObject.status,
-          location: targetObject.location,
-          revenue: targetObject.revenue,
-          funding: targetObject.funding,
-          size: targetObject.size,
-        };
-      })
-    );
+    try {
+      setTargets(
+        targets.map((t) => {
+          if (t.id !== targetObject.id) return t;
+          return {
+            ...t,
+            name: targetObject.name,
+            info: targetObject.info,
+            contact: targetObject.contact,
+            status: targetObject.status,
+            location: targetObject.location,
+            revenue: targetObject.revenue,
+            funding: targetObject.funding,
+            size: targetObject.size,
+          };
+        })
+      );
+    } catch (err) {
+      console.error(err.message);
+    }
   };
 
   const editTargetFromHome = (e, targetObject) => {
