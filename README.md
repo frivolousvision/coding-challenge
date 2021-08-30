@@ -5,24 +5,24 @@
 
 ### Requirements
 
-- NodeJS LTS or greater 
+- NodeJS NPM 
 
 In the terminal, cd to your desired project directory and run:
 
 ### Run `git clone https://github.com/frivolousvision/coding-challenge.git`
 
 To clone the repository.
-
+<p>&nbsp;</p>
 
 ### `cd coding-challenge`
 
 To navigate to the new directory.
-
+<p>&nbsp;</p>
 
 ### `npm install`
 
 To install the dependencies locally.
-
+<p>&nbsp;</p>
 
 ### `npm start`
 
@@ -31,7 +31,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
-
+<p>&nbsp;</p>
 
 ## Project Overview
 
