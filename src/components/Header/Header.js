@@ -121,11 +121,19 @@ const Header = (props) => {
           </h2>
         </Link>
 
-        <FontAwesomeIcon
-          icon={faBars}
-          className='bars'
-          onClick={() => toggleMenu()}
-        />
+        {showMenu ? (
+          <FontAwesomeIcon
+            icon={faTimes}
+            className='bars'
+            onClick={() => toggleMenu()}
+          />
+        ) : (
+          <FontAwesomeIcon
+            icon={faBars}
+            className='bars'
+            onClick={() => toggleMenu()}
+          />
+        )}
       </div>
       <div className='mobile-menu'>
         <div className='mobile-menu-contents' id='menu-contents'>
