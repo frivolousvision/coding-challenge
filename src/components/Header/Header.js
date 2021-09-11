@@ -59,21 +59,13 @@ const Header = (props) => {
   const handleHomeClick = () => {
     scrollTop();
     if (showMenu) {
-      // document.getElementsByClassName("mobile-menu")[0].style.width = "0";
-      // document.getElementsByClassName("mobile-menu-contents")[0].style.display =
-      //   "none";
-      // document.getElementsByClassName("bars")[0].style.display = "block";
-      // document.getElementsByClassName("bars")[0].style.transform =
-      //   "rotate(360deg)";
       setShowMenu(false);
     }
-    // collapseCategories();
     setDisplayCategory(defaultCategoryState);
   };
 
   const handleNewTargetLink = () => {
     toggleMenu();
-    // collapseCategories();
     setTimeout(() => {
       window.scrollTo(0, document.body.scrollHeight);
     }, 100);

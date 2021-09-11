@@ -50,18 +50,6 @@
   transition: 400ms;
   cursor: pointer;
 }
-/* .mobile-menu {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  background-color: grey;
-  height: 100%;
-  position: fixed;
-  right: 0;
-  box-shadow: -1px 1px 1px rgb(94, 94, 94);
-  overflow-y: scroll;
-} */
 .hide-menu {
   display: flex;
   flex-direction: column;
