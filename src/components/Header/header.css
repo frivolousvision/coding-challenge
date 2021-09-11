@@ -37,13 +37,20 @@
   color: white;
   font-size: 2.5rem;
 }
-.bars {
+.show-bars {
+  color: white;
+  font-size: 2.5rem;
+  transition: 400ms;
+  cursor: pointer;
+  transform: rotate(360deg);
+}
+.hide-bars {
   color: white;
   font-size: 2.5rem;
   transition: 400ms;
   cursor: pointer;
 }
-.mobile-menu {
+/* .mobile-menu {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -52,10 +59,36 @@
   height: 100%;
   position: fixed;
   right: 0;
-  width: 0rem;
-  /* transition: 400ms; */
   box-shadow: -1px 1px 1px rgb(94, 94, 94);
   overflow-y: scroll;
+} */
+.hide-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: grey;
+  height: 100%;
+  position: fixed;
+  right: 0;
+  box-shadow: -1px 1px 1px rgb(94, 94, 94);
+  overflow-y: scroll;
+  width: 0rem;
+  transition: 400ms;
+}
+.show-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: grey;
+  height: 100%;
+  position: fixed;
+  right: 0;
+  box-shadow: -1px 1px 1px rgb(94, 94, 94);
+  overflow-y: scroll;
+  width: 20rem;
+  transition: 400ms;
 }
 .mobile-menu-contents h2 {
   color: white;
@@ -69,12 +102,16 @@
 }
 
 .menu-category {
-  height: 0;
-  transform: scaleY(0);
   transition: 400ms;
+  padding: 0;
+  margin-bottom: 0;
 }
-#menu-contents {
+
+.hide-menu-contents {
   display: none;
+}
+.show-menu-contents {
+  display: contents;
 }
 .close-button {
   color: white;
@@ -109,7 +146,14 @@ li {
   color: white;
   transition: 500ms;
 }
-
+.show-category {
+  height: auto;
+  transform: scale(1);
+}
+.hide-category {
+  height: 0;
+  transform: scaleY(0);
+}
 .menu-targets:hover {
   color: black;
 }

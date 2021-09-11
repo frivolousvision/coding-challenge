@@ -25,28 +25,11 @@ const Header = (props) => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const collapseCategories = () => {
-    const menuArrOne = document.getElementsByClassName("menu-category");
-    for (let i = 0; i < menuArrOne.length; i++) {
-      menuArrOne[i].style.transform = "scaleY(0)";
-      menuArrOne[i].style.height = "0";
-    }
-  };
-
   const toggleMenu = () => {
     if (!showMenu) {
-      document.getElementById("menu-contents").style.display = "contents";
-      document.getElementsByClassName("mobile-menu")[0].style.width = "20rem";
-      document.getElementsByClassName("bars")[0].style.transform =
-        "rotate(-360deg)";
       setShowMenu(true);
     }
     if (showMenu) {
-      document.getElementsByClassName("mobile-menu")[0].style.width = "0";
-      document.getElementById("menu-contents").style.display = "none";
-      document.getElementsByClassName("bars")[0].style.transform =
-        "rotate(360deg)";
-      collapseCategories();
       setShowMenu(false);
       setDisplayCategory(defaultCategoryState);
     }
@@ -60,21 +43,12 @@ const Header = (props) => {
         ...theOne,
         show: true,
       };
-      document.getElementsByClassName("menu-category")[id].style.height =
-        "auto";
-      document.getElementsByClassName("menu-category")[id].style.transform =
-        "scaleY(1)";
     }
     if (theOne.show === true) {
       updated = {
         ...theOne,
         show: false,
       };
-      document.getElementsByClassName("menu-category")[id].style.transform =
-        "scaleY(0)";
-      setTimeout(() => {
-        document.getElementsByClassName("menu-category")[id].style.height = "0";
-      }, 300);
     }
     const updatedShow = displayCategory.map((t) =>
       t.id === updated.id ? updated : t
@@ -85,21 +59,21 @@ const Header = (props) => {
   const handleHomeClick = () => {
     scrollTop();
     if (showMenu) {
-      document.getElementsByClassName("mobile-menu")[0].style.width = "0";
-      document.getElementsByClassName("mobile-menu-contents")[0].style.display =
-        "none";
-      document.getElementsByClassName("bars")[0].style.display = "block";
-      document.getElementsByClassName("bars")[0].style.transform =
-        "rotate(360deg)";
+      // document.getElementsByClassName("mobile-menu")[0].style.width = "0";
+      // document.getElementsByClassName("mobile-menu-contents")[0].style.display =
+      //   "none";
+      // document.getElementsByClassName("bars")[0].style.display = "block";
+      // document.getElementsByClassName("bars")[0].style.transform =
+      //   "rotate(360deg)";
       setShowMenu(false);
     }
-    collapseCategories();
+    // collapseCategories();
     setDisplayCategory(defaultCategoryState);
   };
 
   const handleNewTargetLink = () => {
     toggleMenu();
-    collapseCategories();
+    // collapseCategories();
     setTimeout(() => {
       window.scrollTo(0, document.body.scrollHeight);
     }, 100);
@@ -124,19 +98,23 @@ const Header = (props) => {
         {showMenu ? (
           <FontAwesomeIcon
             icon={faTimes}
-            className='bars'
+            className='show-bars'
             onClick={() => toggleMenu()}
           />
         ) : (
           <FontAwesomeIcon
             icon={faBars}
-            className='bars'
+            className='hide-bars'
             onClick={() => toggleMenu()}
           />
         )}
       </div>
-      <div className='mobile-menu'>
-        <div className='mobile-menu-contents' id='menu-contents'>
+      <div className={`mobile-menu ${showMenu ? "show-menu" : "hide-menu"}`}>
+        <div
+          className={`mobile-menu-contents ${
+            showMenu ? "show-menu-contents" : "hide-menu-contents"
+          }`}
+        >
           <div className='ul-container'>
             <ul>
               <h2 onClick={() => toggleCategories(0)}>
@@ -147,7 +125,11 @@ const Header = (props) => {
                   <FontAwesomeIcon icon={faPlus} className='awesome' />
                 )}
               </h2>
-              <div className='menu-category'>
+              <div
+                className={`menu-category ${
+                  displayCategory[0].show ? "show-category" : "hide-category"
+                }`}
+              >
                 {props.targets
                   ? props.targets.map((target) => {
                       if (target.status === "Researching") {
@@ -172,7 +154,11 @@ const Header = (props) => {
                   <FontAwesomeIcon icon={faPlus} className='awesome' />
                 )}
               </h2>
-              <div className='menu-category'>
+              <div
+                className={`menu-category ${
+                  displayCategory[1].show ? "show-category" : "hide-category"
+                }`}
+              >
                 {props.targets
                   ? props.targets.map((target) => {
                       if (target.status === "Approved") {
@@ -197,7 +183,11 @@ const Header = (props) => {
                   <FontAwesomeIcon icon={faPlus} className='awesome' />
                 )}
               </h2>
-              <div className='menu-category'>
+              <div
+                className={`menu-category ${
+                  displayCategory[2].show ? "show-category" : "hide-category"
+                }`}
+              >
                 {props.targets
                   ? props.targets.map((target) => {
                       if (target.status === "Pending Approval") {
@@ -222,7 +212,11 @@ const Header = (props) => {
                   <FontAwesomeIcon icon={faPlus} className='awesome' />
                 )}
               </h2>
-              <div className='menu-category'>
+              <div
+                className={`menu-category ${
+                  displayCategory[3].show ? "show-category" : "hide-category"
+                }`}
+              >
                 {props.targets
                   ? props.targets.map((target) => {
                       if (target.status === "Declined") {
